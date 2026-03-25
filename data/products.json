@@ -373,7 +373,7 @@
       "categoria": "cuerpo",
       "tipo_producto": "simple",
       "precio": 1000,
-      "activo": true,
+      "activo": false,
       "descuento": 0
     },
 
@@ -385,7 +385,7 @@
       "categoria": "cuerpo",
       "tipo_producto": "simple",
       "precio": 1000,
-      "activo": true,
+      "activo": false,
       "descuento": 0
     },
 
@@ -397,7 +397,7 @@
       "categoria": "cuerpo",
       "tipo_producto": "simple",
       "precio": 1000,
-      "activo": true,
+      "activo": false,
       "descuento": 0
     },
 
@@ -409,7 +409,7 @@
       "categoria": "cuerpo",
       "tipo_producto": "simple",
       "precio": 1000,
-      "activo": true,
+      "activo": false,
       "descuento": 0
     },
 
@@ -421,7 +421,7 @@
       "categoria": "rostro",
       "tipo_producto": "simple",
       "precio": 1000,
-      "activo": true,
+      "activo": false,
       "descuento": 0
     },
 
@@ -433,7 +433,7 @@
       "categoria": "otros",
       "tipo_producto": "simple",
       "precio": 1000,
-      "activo": true,
+      "activo": false,
       "descuento": 0
     },
 
@@ -445,7 +445,7 @@
       "categoria": "rostro",
       "tipo_producto": "simple",
       "precio": 1000,
-      "activo": true,
+      "activo": false,
       "descuento": 0
     },
 
@@ -457,7 +457,7 @@
       "categoria": "rostro",
       "tipo_producto": "simple",
       "precio": 1000,
-      "activo": true,
+      "activo": false,
       "descuento": 0
     },
 
@@ -469,7 +469,7 @@
       "categoria": "otros",
       "tipo_producto": "simple",
       "precio": 1000,
-      "activo": true,
+      "activo": false,
       "descuento": 0
     },
 
@@ -481,7 +481,7 @@
       "categoria": "maquillaje",
       "tipo_producto": "simple",
       "precio": 1000,
-      "activo": true,
+      "activo": false,
       "descuento": 0
     },
 
@@ -493,7 +493,7 @@
       "categoria": "rostro",
       "tipo_producto": "simple",
       "precio": 1000,
-      "activo": true,
+      "activo": false,
       "descuento": 0
     },
 
@@ -505,7 +505,7 @@
       "categoria": "maquillaje",
       "tipo_producto": "simple",
       "precio": 1000,
-      "activo": true,
+      "activo": false,
       "descuento": 0
     },
 
@@ -517,7 +517,7 @@
       "categoria": "rostro",
       "tipo_producto": "simple",
       "precio": 1000,
-      "activo": true,
+      "activo": false,
       "descuento": 0
     },
 
@@ -529,7 +529,7 @@
       "categoria": "maquillaje",
       "tipo_producto": "simple",
       "precio": 1000,
-      "activo": true,
+      "activo": false,
       "descuento": 0
     },
 
@@ -541,7 +541,7 @@
       "categoria": "cuerpo",
       "tipo_producto": "simple",
       "precio": 1000,
-      "activo": true,
+      "activo": false,
       "descuento": 0
     },
 
@@ -553,7 +553,7 @@
       "categoria": "rostro",
       "tipo_producto": "simple",
       "precio": 1000,
-      "activo": true,
+      "activo": false,
       "descuento": 0
     },
 
@@ -565,7 +565,7 @@
       "categoria": "rostro",
       "tipo_producto": "simple",
       "precio": 1000,
-      "activo": true,
+      "activo": false,
       "descuento": 0
     },
 
@@ -577,7 +577,7 @@
       "categoria": "otros",
       "tipo_producto": "simple",
       "precio": 1000,
-      "activo": true,
+      "activo": false,
       "descuento": 0
     },
 
@@ -589,7 +589,7 @@
       "categoria": "otros",
       "tipo_producto": "simple",
       "precio": 1000,
-      "activo": true,
+      "activo": false,
       "descuento": 0
     }
 
