@@ -599,7 +599,8 @@
     {
       "id": 1001,
       "nombre": "Promo 1",
-      "descripcion": "Kit Shampoo + Acondicionador — 25% OFF",
+      "descripcion": "Shampoo solido + Acondicionador solido — 25% OFF",
+      "texto_precio": "de $ 24.000 a $ 18.000",
       "tipo": "descuento_por_kit",
       "productos_requeridos": [1, 3],
       "regla_descuento": {
