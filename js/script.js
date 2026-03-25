@@ -233,8 +233,8 @@ function renderOffers() {
                 ${componentNames.map(n => `<span class="offer-component-tag">${n}</span>`).join('')}
             </div>
             <div class="offer-pricing">
-                <span class="offer-original">${formatPrice(originalPrice)}</span>
-                <span class="offer-final">${formatPrice(discountedPrice)}</span>
+              de <span class="offer-original">${formatPrice(originalPrice)}</span>
+               a <span class="offer-final">${formatPrice(discountedPrice)}</span>
             </div>
             <p class="offer-hint">💡 Agregá los productos al carrito para obtener el descuento automáticamente</p>
         `;
