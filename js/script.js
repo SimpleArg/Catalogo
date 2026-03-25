@@ -22,7 +22,7 @@ const CONFIG = {
     github: {
         repo: "Alu96hub/Simple",
         branch: "main",
-        productsPath: "data/products.json",
+        productsPath: "data/product2.json",
         token: ""
     }
 };
