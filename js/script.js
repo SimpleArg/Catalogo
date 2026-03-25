@@ -23,7 +23,7 @@ const CONFIG = {
         repo: "Alu96hub/Simple",
         branch: "main",
         productsPath: "data/products.json",
-        token: "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"
+        token: ""
     }
 };
 
