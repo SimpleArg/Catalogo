@@ -1,0 +1,1202 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Simple — Cosmética Natural</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Dancing+Script:wght@600;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --pink:       #fce8ef;
+    --pink-mid:   #f7c6d8;
+    --pink-deep:  #e8829a;
+    --pink-btn:   #e05c7e;
+    --blue-light: #b3dff5;
+    --blue-mid:   #5ab4e0;
+    --blue-deep:  #2e86c1;
+    --cream:      #fffaf7;
+    --gold:       #c9a84c;
+    --dark:       #2d2027;
+    --text:       #3b2732;
+    --muted:      #8a6a76;
+    --bubble1:    #5ab4e0;
+    --bubble2:    #b3dff5;
+    --bubble3:    #84ccee;
+    --radius:     18px;
+    --shadow:     0 8px 32px rgba(224, 92, 126, 0.13);
+    --shadow-card:0 4px 24px rgba(45, 32, 39, 0.09);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    overflow-x: hidden;
+  }
+
+  /* ── BUBBLES BACKGROUND ─────────────────────────────── */
+  .bubble-bg {
+    position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden;
+  }
+  .bubble-bg span {
+    position: absolute;
+    border-radius: 50%;
+    opacity: .18;
+    animation: floatBubble linear infinite;
+  }
+  .bubble-bg span:nth-child(1)  { width:120px;height:120px;background:var(--bubble1);left:5%;top:10%;  animation-duration:18s;animation-delay:0s; }
+  .bubble-bg span:nth-child(2)  { width:70px; height:70px; background:var(--bubble2);left:15%;top:60%; animation-duration:22s;animation-delay:2s; }
+  .bubble-bg span:nth-child(3)  { width:180px;height:180px;background:var(--bubble3);left:78%;top:5%;  animation-duration:26s;animation-delay:4s; }
+  .bubble-bg span:nth-child(4)  { width:50px; height:50px; background:var(--bubble1);left:60%;top:70%; animation-duration:15s;animation-delay:1s; }
+  .bubble-bg span:nth-child(5)  { width:90px; height:90px; background:var(--blue-mid);left:88%;top:40%;animation-duration:20s;animation-delay:6s; }
+  .bubble-bg span:nth-child(6)  { width:40px; height:40px; background:var(--bubble2);left:45%;top:90%; animation-duration:17s;animation-delay:3s; }
+  .bubble-bg span:nth-child(7)  { width:60px; height:60px; background:var(--blue-deep);left:30%;top:30%;animation-duration:24s;animation-delay:8s; }
+  .bubble-bg span:nth-child(8)  { width:130px;height:130px;background:var(--pink-mid);left:92%;top:80%; animation-duration:21s;animation-delay:5s; }
+  .bubble-bg span:nth-child(9)  { width:35px; height:35px; background:var(--bubble1);left:70%;top:55%; animation-duration:16s;animation-delay:9s; }
+  .bubble-bg span:nth-child(10) { width:80px; height:80px; background:var(--bubble3);left:2%;top:80%;  animation-duration:19s;animation-delay:7s; }
+
+  @keyframes floatBubble {
+    0%   { transform: translateY(0) scale(1); }
+    50%  { transform: translateY(-40px) scale(1.05); }
+    100% { transform: translateY(0) scale(1); }
+  }
+
+  /* ── HEADER ─────────────────────────────────────────── */
+  header {
+    position: relative; z-index: 10;
+    background: linear-gradient(135deg, var(--pink) 0%, #fdf0f5 40%, var(--blue-light) 100%);
+    padding: 0;
+    border-bottom: 2px solid var(--pink-mid);
+    overflow: hidden;
+  }
+  .header-inner {
+    max-width: 1200px; margin: 0 auto;
+    padding: 40px 32px 32px;
+    display: flex; align-items: center; justify-content: space-between; gap: 24px;
+    flex-wrap: wrap;
+  }
+  .logo-wrap { display: flex; flex-direction: column; gap: 2px; }
+  .logo-sub {
+    font-family: 'DM Sans', sans-serif;
+    font-size: .72rem; font-weight: 500; letter-spacing: .25em;
+    text-transform: uppercase; color: var(--muted);
+  }
+  .logo-main {
+    font-family: 'Dancing Script', cursive;
+    font-size: 3.4rem; font-weight: 700;
+    color: var(--pink-btn);
+    line-height: 1;
+    text-shadow: 2px 3px 0 rgba(224,92,126,.15);
+  }
+  .logo-tagline {
+    font-size: .8rem; color: var(--muted); font-style: italic; letter-spacing: .05em;
+  }
+  .header-right { display: flex; flex-direction: column; align-items: flex-end; gap: 8px; }
+  .badge-natural {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: white; border: 1.5px solid var(--pink-mid);
+    border-radius: 999px; padding: 6px 14px;
+    font-size: .75rem; font-weight: 500; color: var(--pink-btn);
+    box-shadow: 0 2px 10px rgba(224,92,126,.1);
+  }
+  .badge-natural::before { content: '🌿'; }
+  .header-deco {
+    position: absolute; right: -40px; top: -40px;
+    width: 200px; height: 200px;
+    background: radial-gradient(circle, var(--blue-light) 0%, transparent 70%);
+    border-radius: 50%; opacity: .5;
+  }
+
+  /* ── NAV / FILTER ───────────────────────────────────── */
+  nav {
+    position: sticky; top: 0; z-index: 20;
+    background: rgba(255,250,247,.92);
+    backdrop-filter: blur(14px);
+    border-bottom: 1.5px solid var(--pink-mid);
+    padding: 0 32px;
+  }
+  .nav-inner {
+    max-width: 1200px; margin: 0 auto;
+    display: flex; align-items: center; gap: 6px;
+    overflow-x: auto; padding: 12px 0;
+    scrollbar-width: none;
+  }
+  .nav-inner::-webkit-scrollbar { display: none; }
+  .nav-btn {
+    flex-shrink: 0;
+    background: none; border: 1.5px solid var(--pink-mid);
+    border-radius: 999px; padding: 7px 18px;
+    font-family: 'DM Sans', sans-serif; font-size: .82rem; font-weight: 500;
+    color: var(--muted); cursor: pointer;
+    transition: all .22s ease;
+    white-space: nowrap;
+  }
+  .nav-btn:hover { background: var(--pink); color: var(--pink-btn); border-color: var(--pink-btn); }
+  .nav-btn.active {
+    background: var(--pink-btn); color: white;
+    border-color: var(--pink-btn);
+    box-shadow: 0 4px 14px rgba(224,92,126,.3);
+  }
+
+  /* ── PROMO BANNER ───────────────────────────────────── */
+  .promo-banner {
+    position: relative; z-index: 5;
+    max-width: 1200px; margin: 40px auto 0;
+    padding: 0 32px;
+    animation: fadeSlideUp .6s ease both;
+  }
+  .promo-card {
+    background: linear-gradient(120deg, var(--blue-deep) 0%, var(--blue-mid) 50%, #7ecce8 100%);
+    border-radius: 24px; padding: 32px 40px;
+    display: flex; align-items: center; justify-content: space-between; gap: 24px;
+    flex-wrap: wrap;
+    box-shadow: 0 12px 40px rgba(46,134,193,.25);
+    overflow: hidden; position: relative;
+  }
+  .promo-card::before {
+    content: '';
+    position: absolute; right: -30px; top: -30px;
+    width: 160px; height: 160px;
+    background: rgba(255,255,255,.12); border-radius: 50%;
+  }
+  .promo-card::after {
+    content: '';
+    position: absolute; left: 30%; bottom: -20px;
+    width: 80px; height: 80px;
+    background: rgba(255,255,255,.08); border-radius: 50%;
+  }
+  .promo-left { flex: 1; min-width: 200px; }
+  .promo-tag {
+    display: inline-block;
+    background: rgba(255,255,255,.22); color: white;
+    border-radius: 999px; padding: 4px 14px;
+    font-size: .72rem; font-weight: 600; letter-spacing: .15em;
+    text-transform: uppercase; margin-bottom: 8px;
+  }
+  .promo-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem; color: white; font-weight: 700; line-height: 1.2;
+  }
+  .promo-subtitle { color: rgba(255,255,255,.85); font-size: .9rem; margin-top: 4px; }
+  .promo-badge {
+    background: white; color: var(--blue-deep);
+    border-radius: 20px; padding: 20px 28px;
+    text-align: center; flex-shrink: 0;
+    box-shadow: 0 6px 20px rgba(0,0,0,.15);
+  }
+  .promo-pct { font-family: 'Playfair Display', serif; font-size: 3rem; font-weight: 700; line-height: 1; color: var(--blue-deep); }
+  .promo-off { font-size: .75rem; font-weight: 600; color: var(--muted); letter-spacing: .1em; text-transform: uppercase; }
+  .promo-products { color: rgba(255,255,255,.75); font-size: .78rem; margin-top: 6px; }
+
+  /* ── SECTIONS ────────────────────────────────────────── */
+  .catalog-section {
+    position: relative; z-index: 5;
+    max-width: 1200px; margin: 56px auto 0;
+    padding: 0 32px;
+    animation: fadeSlideUp .6s ease both;
+  }
+  .section-header {
+    display: flex; align-items: baseline; gap: 16px;
+    margin-bottom: 28px; padding-bottom: 12px;
+    border-bottom: 2px solid var(--pink-mid);
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem; font-weight: 700;
+    color: var(--dark);
+  }
+  .section-title em {
+    font-style: italic; color: var(--pink-btn);
+  }
+  .section-count {
+    font-size: .78rem; color: var(--muted);
+    background: var(--pink); border-radius: 999px;
+    padding: 3px 10px; font-weight: 500;
+  }
+
+  /* ── PRODUCT GRID ────────────────────────────────────── */
+  .product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 24px;
+  }
+
+  /* ── PRODUCT CARD ────────────────────────────────────── */
+  .product-card {
+    background: white;
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow-card);
+    border: 1.5px solid rgba(224,92,126,.08);
+    transition: transform .28s ease, box-shadow .28s ease;
+    display: flex; flex-direction: column;
+    position: relative;
+  }
+  .product-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 48px rgba(224,92,126,.18);
+  }
+
+  /* image area */
+  .card-img {
+    width: 100%; aspect-ratio: 1/1;
+    background: linear-gradient(135deg, var(--pink) 0%, var(--blue-light) 100%);
+    display: flex; align-items: center; justify-content: center;
+    position: relative; overflow: hidden;
+  }
+  .card-img img {
+    width: 100%; height: 100%; object-fit: cover;
+    transition: transform .38s ease;
+  }
+  .product-card:hover .card-img img { transform: scale(1.04); }
+  .card-img-placeholder {
+    display: flex; flex-direction: column; align-items: center; gap: 8px;
+    color: var(--muted); font-size: .8rem; text-align: center; padding: 20px;
+  }
+  .card-img-placeholder span { font-size: 2.8rem; }
+
+  /* badges on image */
+  .card-badge {
+    position: absolute; top: 12px; left: 12px;
+    background: var(--pink-btn); color: white;
+    border-radius: 999px; padding: 4px 10px;
+    font-size: .68rem; font-weight: 600; letter-spacing: .06em;
+    text-transform: uppercase;
+    box-shadow: 0 3px 10px rgba(224,92,126,.3);
+  }
+  .card-badge.natural { background: #5aaa7e; }
+  .card-badge.premium { background: var(--gold); }
+
+  /* body */
+  .card-body {
+    padding: 18px 20px 14px;
+    flex: 1; display: flex; flex-direction: column; gap: 8px;
+  }
+  .card-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem; font-weight: 700; color: var(--dark);
+    line-height: 1.25;
+  }
+  .card-desc {
+    font-size: .8rem; color: var(--muted); line-height: 1.5;
+  }
+
+  /* ingredients */
+  .card-ingredients {
+    font-size: .73rem; color: var(--muted);
+    background: var(--pink); border-radius: 8px;
+    padding: 8px 10px; line-height: 1.5;
+    margin-top: 2px;
+  }
+  .card-ingredients strong {
+    display: block; color: var(--pink-btn);
+    font-size: .68rem; letter-spacing: .08em;
+    text-transform: uppercase; margin-bottom: 3px;
+  }
+
+  /* variants */
+  .card-variants { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 4px; }
+  .variant-chip {
+    background: var(--blue-light); color: var(--blue-deep);
+    border-radius: 999px; padding: 3px 10px;
+    font-size: .7rem; font-weight: 500; cursor: pointer;
+    border: 1.5px solid transparent;
+    transition: all .18s;
+  }
+  .variant-chip:hover, .variant-chip.selected {
+    background: var(--blue-mid); color: white;
+    border-color: var(--blue-deep);
+  }
+  .card-variant-note {
+    font-size: .72rem; color: var(--muted); font-style: italic;
+    margin-top: 2px;
+  }
+
+  /* footer */
+  .card-footer {
+    padding: 12px 20px 18px;
+    display: flex; align-items: center; justify-content: space-between;
+    border-top: 1px solid var(--pink);
+  }
+  .card-price {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.25rem; font-weight: 700;
+    color: var(--pink-btn);
+  }
+  .card-price small { font-size: .7rem; color: var(--muted); font-family: 'DM Sans', sans-serif; font-weight: 400; }
+  .btn-add {
+    background: var(--pink-btn); color: white;
+    border: none; border-radius: 999px;
+    padding: 8px 18px; font-size: .78rem; font-weight: 600;
+    cursor: pointer; font-family: 'DM Sans', sans-serif;
+    transition: all .2s; letter-spacing: .03em;
+    box-shadow: 0 4px 14px rgba(224,92,126,.3);
+  }
+  .btn-add:hover {
+    background: #c94a6d;
+    transform: scale(1.05);
+    box-shadow: 0 6px 18px rgba(224,92,126,.4);
+  }
+
+  /* family card (has variants accordion) */
+  .family-card .card-body { gap: 10px; }
+  .variants-toggle {
+    background: none; border: 1.5px solid var(--pink-mid);
+    border-radius: 8px; padding: 7px 14px;
+    font-size: .78rem; font-weight: 500; color: var(--muted);
+    cursor: pointer; font-family: 'DM Sans', sans-serif;
+    display: flex; align-items: center; justify-content: space-between;
+    width: 100%; transition: all .2s;
+    margin-top: 4px;
+  }
+  .variants-toggle:hover { background: var(--pink); color: var(--pink-btn); border-color: var(--pink-btn); }
+  .variants-toggle .arrow { transition: transform .22s; font-size: .7rem; }
+  .variants-toggle.open .arrow { transform: rotate(180deg); }
+  .variants-list {
+    display: none; flex-direction: column; gap: 6px;
+    padding: 8px 0;
+  }
+  .variants-list.open { display: flex; }
+  .variant-row {
+    display: flex; align-items: center; justify-content: space-between;
+    background: var(--pink); border-radius: 10px;
+    padding: 8px 12px; gap: 8px;
+  }
+  .variant-row-name { font-size: .8rem; font-weight: 500; color: var(--dark); flex: 1; }
+  .variant-row-price { font-size: .85rem; font-weight: 700; color: var(--pink-btn); white-space: nowrap; }
+  .btn-variant-add {
+    background: var(--pink-btn); color: white;
+    border: none; border-radius: 999px;
+    padding: 4px 12px; font-size: .7rem; font-weight: 600;
+    cursor: pointer; font-family: 'DM Sans', sans-serif;
+    transition: background .18s;
+  }
+  .btn-variant-add:hover { background: #c94a6d; }
+
+  /* ── FOOTER ──────────────────────────────────────────── */
+  footer {
+    position: relative; z-index: 5;
+    margin-top: 80px;
+    background: linear-gradient(135deg, var(--dark) 0%, #3d2535 100%);
+    color: rgba(255,255,255,.7);
+    padding: 48px 32px 32px;
+    text-align: center;
+  }
+  footer .footer-logo {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2.4rem; color: var(--pink-mid);
+    font-weight: 700; margin-bottom: 6px;
+  }
+  footer .footer-tagline { font-size: .82rem; margin-bottom: 24px; }
+  .footer-links {
+    display: flex; justify-content: center; gap: 24px;
+    flex-wrap: wrap; margin-bottom: 28px;
+  }
+  .footer-links a {
+    color: rgba(255,255,255,.55); text-decoration: none;
+    font-size: .8rem; transition: color .18s;
+  }
+  .footer-links a:hover { color: var(--pink-mid); }
+  .footer-social { display: flex; justify-content: center; gap: 14px; margin-bottom: 24px; }
+  .social-icon {
+    width: 38px; height: 38px;
+    background: rgba(255,255,255,.08);
+    border: 1px solid rgba(255,255,255,.15);
+    border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    text-decoration: none; font-size: 1.05rem;
+    transition: background .18s, transform .18s;
+  }
+  .social-icon:hover { background: var(--pink-btn); transform: translateY(-3px); }
+  footer hr { border-color: rgba(255,255,255,.1); margin-bottom: 16px; }
+  footer small { font-size: .72rem; color: rgba(255,255,255,.35); }
+
+  /* ── CART FLOAT ──────────────────────────────────────── */
+  .cart-float {
+    position: fixed; bottom: 28px; right: 28px; z-index: 100;
+  }
+  .cart-btn {
+    background: var(--pink-btn); color: white;
+    border: none; border-radius: 999px;
+    width: 58px; height: 58px; font-size: 1.5rem;
+    cursor: pointer; display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 8px 28px rgba(224,92,126,.4);
+    transition: transform .2s;
+    position: relative;
+  }
+  .cart-btn:hover { transform: scale(1.1); }
+  .cart-count {
+    position: absolute; top: -4px; right: -4px;
+    background: var(--blue-deep); color: white;
+    border-radius: 999px; width: 22px; height: 22px;
+    font-size: .68rem; font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+    border: 2px solid white;
+  }
+
+  /* toast */
+  .toast {
+    position: fixed; bottom: 100px; right: 28px; z-index: 200;
+    background: var(--dark); color: white;
+    border-radius: 12px; padding: 12px 20px;
+    font-size: .82rem; font-weight: 500;
+    box-shadow: 0 8px 28px rgba(0,0,0,.3);
+    transform: translateY(20px) scale(.95);
+    opacity: 0; transition: all .3s;
+    pointer-events: none; max-width: 240px;
+  }
+  .toast.show { transform: translateY(0) scale(1); opacity: 1; }
+
+  /* ── ANIMATIONS ──────────────────────────────────────── */
+  @keyframes fadeSlideUp {
+    from { opacity: 0; transform: translateY(22px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .catalog-section:nth-child(2) { animation-delay: .05s; }
+  .catalog-section:nth-child(3) { animation-delay: .10s; }
+  .catalog-section:nth-child(4) { animation-delay: .15s; }
+  .catalog-section:nth-child(5) { animation-delay: .20s; }
+
+  /* ── RESPONSIVE ──────────────────────────────────────── */
+  @media(max-width:640px) {
+    .header-inner { padding: 28px 20px 20px; }
+    .logo-main { font-size: 2.6rem; }
+    nav { padding: 0 16px; }
+    .catalog-section { padding: 0 16px; }
+    .promo-banner { padding: 0 16px; }
+    .promo-card { padding: 24px 20px; }
+    .product-grid { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px; }
+    footer { padding: 36px 20px 24px; }
+  }
+
+  /* ── HIDDEN (filter) ─────────────────────────────────── */
+  .hidden { display: none !important; }
+</style>
+</head>
+<body>
+
+<!-- floating bubbles -->
+<div class="bubble-bg" aria-hidden="true">
+  <span></span><span></span><span></span><span></span><span></span>
+  <span></span><span></span><span></span><span></span><span></span>
+</div>
+
+<!-- ── HEADER ──────────────────────────────────────────── -->
+<header>
+  <div class="header-deco"></div>
+  <div class="header-inner">
+    <div class="logo-wrap">
+      <span class="logo-sub">Cosmética Natural</span>
+      <div class="logo-main">Simple</div>
+      <span class="logo-tagline">Ingredientes puros · Resultados reales</span>
+    </div>
+    <div class="header-right">
+      <span class="badge-natural">100% Artesanal</span>
+      <span class="badge-natural" style="--pink-btn:#5aaa7e">Sin parabenos</span>
+      <span class="badge-natural" style="--pink-btn:#c9a84c">Cruelty free</span>
+    </div>
+  </div>
+</header>
+
+<!-- ── NAV FILTER ──────────────────────────────────────── -->
+<nav>
+  <div class="nav-inner">
+    <button class="nav-btn active" data-filter="all">Todos</button>
+    <button class="nav-btn" data-filter="cabello">Cabello</button>
+    <button class="nav-btn" data-filter="rostro">Rostro</button>
+    <button class="nav-btn" data-filter="cuerpo">Cuerpo</button>
+    <button class="nav-btn" data-filter="maquillaje">Maquillaje</button>
+    <button class="nav-btn" data-filter="otros">Otros</button>
+    <button class="nav-btn" data-filter="promo">🏷️ Promos</button>
+  </div>
+</nav>
+
+<!-- ── PROMO ────────────────────────────────────────────── -->
+<div class="promo-banner" data-section="promo">
+  <div class="promo-card">
+    <div class="promo-left">
+      <span class="promo-tag">✨ Oferta especial</span>
+      <div class="promo-title">Kit Shampoo +<br>Acondicionador + Mascarilla</div>
+      <div class="promo-subtitle">El ritual completo para un cabello sano y brillante</div>
+      <div class="promo-products">Shampoo sólido · Acondicionador sólido · Mascarilla capilar 200cc</div>
+    </div>
+    <div class="promo-badge">
+      <div class="promo-pct">25%</div>
+      <div class="promo-off">de descuento</div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════════════
+     SECCIÓN: CABELLO — FAMILIAS
+     ════════════════════════════════════════════════════════ -->
+<section class="catalog-section" data-section="cabello">
+  <div class="section-header">
+    <h2 class="section-title"><em>Cabello</em> — Línea principal</h2>
+    <span class="section-count">4 familias</span>
+  </div>
+  <div class="product-grid">
+
+    <!-- 1. Shampoo Sólido -->
+    <div class="product-card family-card">
+      <div class="card-img">
+        <img src="shampoo-solido.jpg" alt="Shampoo sólido" onerror="this.parentElement.innerHTML='<div class=\'card-img-placeholder\'><span>🧴</span>Shampoo sólido</div>'" />
+        <span class="card-badge natural">Artesanal</span>
+      </div>
+      <div class="card-body">
+        <div class="card-name">Shampoo Sólido</div>
+        <div class="card-desc">Shampoo artesanal elaborado con ingredientes naturales seleccionados. Elige tu variante.</div>
+        <div class="card-ingredients">
+          <strong>Ingredientes base</strong>
+          Aceite de coco, manteca de karité, arcilla, romero, ortiga, aceite de ricino, biopéptidos, cafeína, proteína de trigo, keratina.
+        </div>
+        <button class="variants-toggle" onclick="toggleVariants(this)">
+          Ver variantes (7) <span class="arrow">▼</span>
+        </button>
+        <div class="variants-list">
+          <div class="variant-row"><span class="variant-row-name">Seborrea / Picor</span><span class="variant-row-price">$12.000</span><button class="btn-variant-add" onclick="addToCart('Shampoo Sólido — Seborrea/Picor', 12000)">+</button></div>
+          <div class="variant-row"><span class="variant-row-name">Pelo seco</span><span class="variant-row-price">$12.000</span><button class="btn-variant-add" onclick="addToCart('Shampoo Sólido — Pelo seco', 12000)">+</button></div>
+          <div class="variant-row"><span class="variant-row-name">Pelo graso</span><span class="variant-row-price">$12.000</span><button class="btn-variant-add" onclick="addToCart('Shampoo Sólido — Pelo graso', 12000)">+</button></div>
+          <div class="variant-row"><span class="variant-row-name">Todo tipo de pelo</span><span class="variant-row-price">$12.000</span><button class="btn-variant-add" onclick="addToCart('Shampoo Sólido — Todo tipo', 12000)">+</button></div>
+          <div class="variant-row"><span class="variant-row-name">Stop caída</span><span class="variant-row-price">$12.000</span><button class="btn-variant-add" onclick="addToCart('Shampoo Sólido — Stop caída', 12000)">+</button></div>
+          <div class="variant-row"><span class="variant-row-name">Rulos</span><span class="variant-row-price">$12.000</span><button class="btn-variant-add" onclick="addToCart('Shampoo Sólido — Rulos', 12000)">+</button></div>
+          <div class="variant-row"><span class="variant-row-name">Lacios</span><span class="variant-row-price">$12.000</span><button class="btn-variant-add" onclick="addToCart('Shampoo Sólido — Lacios', 12000)">+</button></div>
+        </div>
+        <div class="card-variant-note">💬 ¿Tenés algo específico en mente? Aclaralo en observaciones al comprar.</div>
+      </div>
+      <div class="card-footer">
+        <div class="card-price">$12.000 <small>c/u</small></div>
+      </div>
+    </div>
+
+    <!-- 2. Tónico Capilar -->
+    <div class="product-card family-card">
+      <div class="card-img">
+        <img src="tonico-capilar.jpg" alt="Tónico capilar" onerror="this.parentElement.innerHTML='<div class=\'card-img-placeholder\'><span>💧</span>Tónico capilar</div>'" />
+        <span class="card-badge">60 cc</span>
+      </div>
+      <div class="card-body">
+        <div class="card-name">Tónico Capilar <small style="font-size:.75rem;font-weight:400;">60 cc</small></div>
+        <div class="card-desc">Uso diario para estimular y fortalecer el cuero cabelludo desde adentro.</div>
+        <div class="card-ingredients">
+          <strong>Ingredientes</strong>
+          Extracto de romero, biotina, mentol, zinc, cafeína.
+        </div>
+        <button class="variants-toggle" onclick="toggleVariants(this)">
+          Ver variantes (2) <span class="arrow">▼</span>
+        </button>
+        <div class="variants-list">
+          <div class="variant-row"><span class="variant-row-name">Fortalecedor</span><span class="variant-row-price">$7.500</span><button class="btn-variant-add" onclick="addToCart('Tónico Capilar — Fortalecedor', 7500)">+</button></div>
+          <div class="variant-row"><span class="variant-row-name">Dermatitis / Seborrea</span><span class="variant-row-price">$7.500</span><button class="btn-variant-add" onclick="addToCart('Tónico Capilar — Dermatitis', 7500)">+</button></div>
+        </div>
+      </div>
+      <div class="card-footer">
+        <div class="card-price">$7.500 <small>c/u</small></div>
+      </div>
+    </div>
+
+    <!-- 3. Acondicionador Sólido -->
+    <div class="product-card family-card">
+      <div class="card-img">
+        <img src="acondicionador-solido.jpg" alt="Acondicionador sólido" onerror="this.parentElement.innerHTML='<div class=\'card-img-placeholder\'><span>✨</span>Acondicionador sólido</div>'" />
+        <span class="card-badge natural">Eco</span>
+      </div>
+      <div class="card-body">
+        <div class="card-name">Acondicionador Sólido</div>
+        <div class="card-desc">Larga duración, sin plástico. Suavidad y nutrición con ingredientes naturales.</div>
+        <div class="card-ingredients">
+          <strong>Ingredientes</strong>
+          Manteca de cacao, aceite de argán, proteína de trigo, keratina vegetal.
+        </div>
+        <button class="variants-toggle" onclick="toggleVariants(this)">
+          Ver variantes (3) <span class="arrow">▼</span>
+        </button>
+        <div class="variants-list">
+          <div class="variant-row"><span class="variant-row-name">Todo tipo de pelo</span><span class="variant-row-price">$12.000</span><button class="btn-variant-add" onclick="addToCart('Acondicionador Sólido — Todo tipo', 12000)">+</button></div>
+          <div class="variant-row"><span class="variant-row-name">Stop caída</span><span class="variant-row-price">$12.000</span><button class="btn-variant-add" onclick="addToCart('Acondicionador Sólido — Stop caída', 12000)">+</button></div>
+          <div class="variant-row"><span class="variant-row-name">Rulos</span><span class="variant-row-price">$12.000</span><button class="btn-variant-add" onclick="addToCart('Acondicionador Sólido — Rulos', 12000)">+</button></div>
+        </div>
+      </div>
+      <div class="card-footer">
+        <div class="card-price">$12.000 <small>c/u</small></div>
+      </div>
+    </div>
+
+    <!-- 4. Acondicionador en Crema -->
+    <div class="product-card family-card">
+      <div class="card-img">
+        <img src="acondicionador-crema.jpg" alt="Acondicionador en crema" onerror="this.parentElement.innerHTML='<div class=\'card-img-placeholder\'><span>🫙</span>Acond. en crema</div>'" />
+        <span class="card-badge">200 cc</span>
+      </div>
+      <div class="card-body">
+        <div class="card-name">Acondicionador en Crema <small style="font-size:.75rem;font-weight:400;">200 cc</small></div>
+        <div class="card-desc">Post-lavado para hidratación profunda. Deja el cabello suave y manejable.</div>
+        <div class="card-ingredients">
+          <strong>Ingredientes</strong>
+          Aceite de coco, manteca de karité, vitamina E, pantenol.
+        </div>
+        <button class="variants-toggle" onclick="toggleVariants(this)">
+          Ver variantes (4) <span class="arrow">▼</span>
+        </button>
+        <div class="variants-list">
+          <div class="variant-row"><span class="variant-row-name">Todo tipo de pelo</span><span class="variant-row-price">$8.000</span><button class="btn-variant-add" onclick="addToCart('Acond. Crema — Todo tipo', 8000)">+</button></div>
+          <div class="variant-row"><span class="variant-row-name">Stop caída</span><span class="variant-row-price">$8.000</span><button class="btn-variant-add" onclick="addToCart('Acond. Crema — Stop caída', 8000)">+</button></div>
+          <div class="variant-row"><span class="variant-row-name">Pelo seco</span><span class="variant-row-price">$8.000</span><button class="btn-variant-add" onclick="addToCart('Acond. Crema — Pelo seco', 8000)">+</button></div>
+          <div class="variant-row"><span class="variant-row-name">Pelo graso</span><span class="variant-row-price">$8.000</span><button class="btn-variant-add" onclick="addToCart('Acond. Crema — Pelo graso', 8000)">+</button></div>
+        </div>
+      </div>
+      <div class="card-footer">
+        <div class="card-price">$8.000 <small>c/u</small></div>
+      </div>
+    </div>
+
+  </div><!-- /product-grid familias cabello -->
+
+  <!-- Productos simples de cabello -->
+  <div class="section-header" style="margin-top:40px;">
+    <h3 class="section-title" style="font-size:1.3rem;">Tratamientos &amp; extras</h3>
+    <span class="section-count">5 productos</span>
+  </div>
+  <div class="product-grid">
+
+    <div class="product-card">
+      <div class="card-img">
+        <img src="acondicionador-peinar.jpg" alt="Acondicionador sin enjuague" onerror="this.parentElement.innerHTML='<div class=\'card-img-placeholder\'><span>💆</span>Sin enjuague</div>'" />
+      </div>
+      <div class="card-body">
+        <div class="card-name">Acondicionador sin Enjuague <small style="font-size:.75rem;font-weight:400;">125 cc</small></div>
+        <div class="card-desc">Facilita el peinado, reduce el frizz y aporta brillo. Sin necesidad de enjuague.</div>
+        <div class="card-ingredients"><strong>Ingredientes</strong>Aceite de argán, proteína de trigo, vitamina B5, silicona vegetal.</div>
+      </div>
+      <div class="card-footer">
+        <div class="card-price">$8.000</div>
+        <button class="btn-add" onclick="addToCart('Acondicionador sin Enjuague', 8000)">Agregar</button>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="card-img">
+        <img src="protector-termico.jpg" alt="Protector térmico" onerror="this.parentElement.innerHTML='<div class=\'card-img-placeholder\'><span>🔥</span>Protector térmico</div>'" />
+      </div>
+      <div class="card-body">
+        <div class="card-name">Protector Térmico Capilar <small style="font-size:.75rem;font-weight:400;">60 cc</small></div>
+        <div class="card-desc">Protege el cabello del calor de planchas y secadores hasta altas temperaturas.</div>
+        <div class="card-ingredients"><strong>Ingredientes</strong>Silicona vegetal, keratina hidrolizada, vitamina E, aceite de jojoba.</div>
+      </div>
+      <div class="card-footer">
+        <div class="card-price">$9.000</div>
+        <button class="btn-add" onclick="addToCart('Protector Térmico Capilar', 9000)">Agregar</button>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="card-img">
+        <img src="oleo-capilar.jpg" alt="Óleo capilar" onerror="this.parentElement.innerHTML='<div class=\'card-img-placeholder\'><span>✨</span>Óleo capilar</div>'" />
+      </div>
+      <div class="card-body">
+        <div class="card-name">Óleo Capilar para Puntas <small style="font-size:.75rem;font-weight:400;">10 cc</small></div>
+        <div class="card-desc">Sella y nutre las puntas abiertas devolviéndoles suavidad y brillo natural.</div>
+        <div class="card-ingredients"><strong>Ingredientes</strong>Aceite de argán, aceite de ricino, vitamina E, aceite de jojoba.</div>
+      </div>
+      <div class="card-footer">
+        <div class="card-price">$5.000</div>
+        <button class="btn-add" onclick="addToCart('Óleo Capilar Puntas', 5000)">Agregar</button>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="card-img">
+        <img src="mascarilla-capilar.jpg" alt="Mascarilla capilar" onerror="this.parentElement.innerHTML='<div class=\'card-img-placeholder\'><span>🫙</span>Mascarilla capilar</div>'" />
+        <span class="card-badge premium">Top</span>
+      </div>
+      <div class="card-body">
+        <div class="card-name">Mascarilla Capilar <small style="font-size:.75rem;font-weight:400;">200 cc</small></div>
+        <div class="card-desc">Tratamiento intensivo semanal para restaurar y nutrir el cabello en profundidad.</div>
+        <div class="card-ingredients"><strong>Ingredientes</strong>Manteca de karité, aceite de coco, keratina vegetal, pantenol.</div>
+      </div>
+      <div class="card-footer">
+        <div class="card-price">$17.000</div>
+        <button class="btn-add" onclick="addToCart('Mascarilla Capilar 200cc', 17000)">Agregar</button>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="card-img">
+        <img src="gel-capilar.jpg" alt="Gel capilar" onerror="this.parentElement.innerHTML='<div class=\'card-img-placeholder\'><span>💚</span>Gel capilar</div>'" />
+        <span class="card-badge natural">Orgánico</span>
+      </div>
+      <div class="card-body">
+        <div class="card-name">Gel Capilar <small style="font-size:.75rem;font-weight:400;">100 g</small></div>
+        <div class="card-desc">Fijación natural sin alcohol ni parabenos. Deja el cabello definido y con brillo.</div>
+        <div class="card-ingredients"><strong>Ingredientes</strong>Lino orgánico, glicerina vegetal, aloe vera, aceite esencial de romero.</div>
+      </div>
+      <div class="card-footer">
+        <div class="card-price">$5.000</div>
+        <button class="btn-add" onclick="addToCart('Gel Capilar', 5000)">Agregar</button>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════
+     SECCIÓN: ROSTRO
+     ════════════════════════════════════════════════════════ -->
+<section class="catalog-section" data-section="rostro">
+  <div class="section-header">
+    <h2 class="section-title"><em>Rostro</em></h2>
+    <span class="section-count">14 productos</span>
+  </div>
+  <div class="product-grid">
+
+    <!-- Crema Facial familia -->
+    <div class="product-card family-card">
+      <div class="card-img">
+        <img src="cremas-faciales.jpg" alt="Crema facial" onerror="this.parentElement.innerHTML='<div class=\'card-img-placeholder\'><span>🌸</span>Crema facial</div>'" />
+        <span class="card-badge">50 cc</span>
+      </div>
+      <div class="card-body">
+        <div class="card-name">Crema Facial <small style="font-size:.75rem;font-weight:400;">50 cc</small></div>
+        <div class="card-desc">Artesanal con activos naturales. Formulada para cada tipo de piel.</div>
+        <div class="card-ingredients"><strong>Ingredientes base</strong>Manteca de karité, aceite de jojoba, aloe vera, vitamina E, aceites esenciales.</div>
+        <button class="variants-toggle" onclick="toggleVariants(this)">
+          Ver variantes (6) <span class="arrow">▼</span>
+        </button>
+        <div class="variants-list">
+          <div class="variant-row"><span class="variant-row-name">Piel mixta</span><span class="variant-row-price">$8.000</span><button class="btn-variant-add" onclick="addToCart('Crema Facial — Piel mixta', 8000)">+</button></div>
+          <div class="variant-row"><span class="variant-row-name">Piel seca</span><span class="variant-row-price">$8.000</span><button class="btn-variant-add" onclick="addToCart('Crema Facial — Piel seca', 8000)">+</button></div>
+          <div class="variant-row"><span class="variant-row-name">Piel grasa</span><span class="variant-row-price">$8.000</span><button class="btn-variant-add" onclick="addToCart('Crema Facial — Piel grasa', 8000)">+</button></div>
+          <div class="variant-row"><span class="variant-row-name">Teens</span><span class="variant-row-price">$8.000</span><button class="btn-variant-add" onclick="addToCart('Crema Facial — Teens', 8000)">+</button></div>
+          <div class="variant-row"><span class="variant-row-name">Unificadora de tono</span><span class="variant-row-price">$8.000</span><button class="btn-variant-add" onclick="addToCart('Crema Facial — Unificadora', 8000)">+</button></div>
+          <div class="variant-row"><span class="variant-row-name">Gel vitamina C</span><span class="variant-row-price">$8.000</span><button class="btn-variant-add" onclick="addToCart('Crema Facial — Vit. C', 8000)">+</button></div>
+        </div>
+      </div>
+      <div class="card-footer"><div class="card-price">$8.000 <small>c/u</small></div></div>
+    </div>
+
+    <!-- Crema Facial Premium familia -->
+    <div class="product-card family-card">
+      <div class="card-img">
+        <img src="cremas-faciales-premium.jpg" alt="Crema facial premium" onerror="this.parentElement.innerHTML='<div class=\'card-img-placeholder\'><span>💎</span>Crema Premium</div>'" />
+        <span class="card-badge premium">Premium</span>
+      </div>
+      <div class="card-body">
+        <div class="card-name">Crema Facial Premium <small style="font-size:.75rem;font-weight:400;">50 cc</small></div>
+        <div class="card-desc">Activos de alta concentración para resultados visibles desde las primeras semanas.</div>
+        <button class="variants-toggle" onclick="toggleVariants(this)">
+          Ver variantes (4) <span class="arrow">▼</span>
+        </button>
+        <div class="variants-list">
+          <div class="variant-row"><span class="variant-row-name">Ác. hialurónico + Colágeno</span><span class="variant-row-price">$17.000</span><button class="btn-variant-add" onclick="addToCart('Crema Premium — Hialurónico', 17000)">+</button></div>
+          <div class="variant-row"><span class="variant-row-name">Provitamina B5</span><span class="variant-row-price">$17.000</span><button class="btn-variant-add" onclick="addToCart('Crema Premium — B5', 17000)">+</button></div>
+          <div class="variant-row"><span class="variant-row-name">Niacinamida + Ginkgo biloba</span><span class="variant-row-price">$17.000</span><button class="btn-variant-add" onclick="addToCart('Crema Premium — Niacinamida', 17000)">+</button></div>
+          <div class="variant-row"><span class="variant-row-name">Ác. salicílico + Té verde</span><span class="variant-row-price">$17.000</span><button class="btn-variant-add" onclick="addToCart('Crema Premium — Salicílico', 17000)">+</button></div>
+        </div>
+      </div>
+      <div class="card-footer"><div class="card-price">$17.000 <small>c/u</small></div></div>
+    </div>
+
+    <!-- Simples rostro -->
+    <div class="product-card">
+      <div class="card-img"><img src="tonico-facial.jpg" alt="Tónico facial" onerror="this.parentElement.innerHTML='<div class=\'card-img-placeholder\'><span>🌹</span>Tónico facial</div>'" /></div>
+      <div class="card-body">
+        <div class="card-name">Tónico Facial</div>
+        <div class="card-desc">Equilibra el pH y prepara la piel para los siguientes pasos del cuidado.</div>
+        <div class="card-ingredients"><strong>Ingredientes</strong>Agua de rosas, hamamelis, aloe vera, ácido hialurónico.</div>
+      </div>
+      <div class="card-footer"><div class="card-price">$1.000</div><button class="btn-add" onclick="addToCart('Tónico Facial', 1000)">Agregar</button></div>
+    </div>
+
+    <div class="product-card">
+      <div class="card-img"><img src="gel-limpieza.jpg" alt="Gel de limpieza" onerror="this.parentElement.innerHTML='<div class=\'card-img-placeholder\'><span>🫧</span>Gel limpieza</div>'" /></div>
+      <div class="card-body">
+        <div class="card-name">Gel de Limpieza Facial</div>
+        <div class="card-desc">Limpieza suave y profunda para pieles normales a grasas. Deja la piel fresca.</div>
+        <div class="card-ingredients"><strong>Ingredientes</strong>Aloe vera, hamamelis, aceite de árbol de té, glicerina vegetal.</div>
+      </div>
+      <div class="card-footer"><div class="card-price">$1.000</div><button class="btn-add" onclick="addToCart('Gel de Limpieza Facial', 1000)">Agregar</button></div>
+    </div>
+
+    <div class="product-card">
+      <div class="card-img"><img src="crema-limpieza-facial.jpg" alt="Crema de limpieza" onerror="this.parentElement.innerHTML='<div class=\'card-img-placeholder\'><span>🌿</span>Crema limpieza</div>'" /></div>
+      <div class="card-body">
+        <div class="card-name">Crema de Limpieza Facial</div>
+        <div class="card-desc">Retira maquillaje e impurezas sin agredir la piel. Efecto calmante inmediato.</div>
+        <div class="card-ingredients"><strong>Ingredientes</strong>Manteca de karité, aceite de jojoba, aloe vera, arcilla blanca.</div>
+      </div>
+      <div class="card-footer"><div class="card-price">$1.000</div><button class="btn-add" onclick="addToCart('Crema de Limpieza Facial', 1000)">Agregar</button></div>
+    </div>
+
+    <div class="product-card">
+      <div class="card-img"><img src="serum-facial.jpg" alt="Sérum facial" onerror="this.parentElement.innerHTML='<div class=\'card-img-placeholder\'><span>💫</span>Sérum facial</div>'" /><span class="card-badge premium">Premium</span></div>
+      <div class="card-body">
+        <div class="card-name">Sérum Facial</div>
+        <div class="card-desc">Concentrado de activos para una piel luminosa y firme. Uso nocturno o diurno.</div>
+        <div class="card-ingredients"><strong>Ingredientes</strong>Ácido hialurónico, vitamina C, aceite de rosa mosqueta, coenzima Q10.</div>
+      </div>
+      <div class="card-footer"><div class="card-price">$1.000</div><button class="btn-add" onclick="addToCart('Sérum Facial', 1000)">Agregar</button></div>
+    </div>
+
+    <div class="product-card">
+      <div class="card-img"><img src="balsamo-labial.jpg" alt="Bálsamo labial" onerror="this.parentElement.innerHTML='<div class=\'card-img-placeholder\'><span>💋</span>Bálsamo labial</div>'" /></div>
+      <div class="card-body">
+        <div class="card-name">Bálsamo Labial</div>
+        <div class="card-desc">Hidrata y repara los labios con ingredientes nutritivos. Textura suave.</div>
+        <div class="card-ingredients"><strong>Ingredientes</strong>Manteca de cacao, aceite de coco, vitamina E, aceite esencial de menta.</div>
+      </div>
+      <div class="card-footer"><div class="card-price">$1.000</div><button class="btn-add" onclick="addToCart('Bálsamo Labial', 1000)">Agregar</button></div>
+    </div>
+
+    <div class="product-card">
+      <div class="card-img"><img src="agua-micelar.jpg" alt="Agua micelar" onerror="this.parentElement.innerHTML='<div class=\'card-img-placeholder\'><span>💧</span>Agua micelar</div>'" /></div>
+      <div class="card-body">
+        <div class="card-name">Agua Micelar</div>
+        <div class="card-desc">Limpieza suave y efectiva para todo tipo de pieles, incluso sensibles. Sin enjuague.</div>
+        <div class="card-ingredients"><strong>Ingredientes</strong>Agua de rosas, hamamelis, aloe vera, glicerina vegetal.</div>
+      </div>
+      <div class="card-footer"><div class="card-price">$1.000</div><button class="btn-add" onclick="addToCart('Agua Micelar', 1000)">Agregar</button></div>
+    </div>
+
+    <div class="product-card">
+      <div class="card-img"><img src="gel-contorno-ojos.jpg" alt="Gel contorno de ojos" onerror="this.parentElement.innerHTML='<div class=\'card-img-placeholder\'><span>👁️</span>Contorno ojos</div>'" /></div>
+      <div class="card-body">
+        <div class="card-name">Gel Contorno de Ojos</div>
+        <div class="card-desc">Reduce ojeras y bolsas con activos descongestivos. Piel más descansada y luminosa.</div>
+        <div class="card-ingredients"><strong>Ingredientes</strong>Ácido hialurónico, cafeína, aloe vera, vitamina C.</div>
+      </div>
+      <div class="card-footer"><div class="card-price">$1.000</div><button class="btn-add" onclick="addToCart('Gel Contorno de Ojos', 1000)">Agregar</button></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════
+     SECCIÓN: CUERPO
+     ════════════════════════════════════════════════════════ -->
+<section class="catalog-section" data-section="cuerpo">
+  <div class="section-header">
+    <h2 class="section-title"><em>Cuerpo</em></h2>
+    <span class="section-count">6 productos</span>
+  </div>
+  <div class="product-grid">
+
+    <div class="product-card">
+      <div class="card-img"><img src="crema-afeitar-barra.jpg" alt="Crema de afeitar en barra" onerror="this.parentElement.innerHTML='<div class=\'card-img-placeholder\'><span>🪒</span>Crema afeitar</div>'" /></div>
+      <div class="card-body">
+        <div class="card-name">Crema en Barra para Afeitar <small style="font-size:.75rem;font-weight:400;">65 g</small></div>
+        <div class="card-desc">Sólida, suaviza y protege la piel durante el afeitado. Sin plástico.</div>
+        <div class="card-ingredients"><strong>Ingredientes</strong>Manteca de karité, aceite de coco, arcilla kaolín, aloe vera.</div>
+      </div>
+      <div class="card-footer"><div class="card-price">$7.000</div><button class="btn-add" onclick="addToCart('Crema Afeitar en Barra', 7000)">Agregar</button></div>
+    </div>
+
+    <div class="product-card">
+      <div class="card-img"><img src="after-shave.jpg" alt="After shave" onerror="this.parentElement.innerHTML='<div class=\'card-img-placeholder\'><span>🌱</span>After shave</div>'" /></div>
+      <div class="card-body">
+        <div class="card-name">After Shave</div>
+        <div class="card-desc">Calma y suaviza la piel tras el afeitado. Con efecto refrescante instantáneo.</div>
+        <div class="card-ingredients"><strong>Ingredientes</strong>Aloe vera, hamamelis, mentol, aceite esencial de lavanda.</div>
+      </div>
+      <div class="card-footer"><div class="card-price">$1.000</div><button class="btn-add" onclick="addToCart('After Shave', 1000)">Agregar</button></div>
+    </div>
+
+    <div class="product-card">
+      <div class="card-img"><img src="crema-corporal-manos.jpg" alt="Crema corporal y manos" onerror="this.parentElement.innerHTML='<div class=\'card-img-placeholder\'><span>🤲</span>Crema manos</div>'" /></div>
+      <div class="card-body">
+        <div class="card-name">Crema Corporal y Manos</div>
+        <div class="card-desc">Hidratación profunda y de absorción rápida. Ideal para usar a diario.</div>
+        <div class="card-ingredients"><strong>Ingredientes</strong>Manteca de karité, aceite de almendras, aloe vera, vitamina E.</div>
+      </div>
+      <div class="card-footer"><div class="card-price">$1.000</div><button class="btn-add" onclick="addToCart('Crema Corporal y Manos', 1000)">Agregar</button></div>
+    </div>
+
+    <div class="product-card">
+      <div class="card-img"><img src="crema-corporal.jpg" alt="Crema corporal" onerror="this.parentElement.innerHTML='<div class=\'card-img-placeholder\'><span>🧴</span>Crema corporal</div>'" /></div>
+      <div class="card-body">
+        <div class="card-name">Crema Corporal</div>
+        <div class="card-desc">Hidratación nutritiva con aroma suave. Textura cremosa de absorción rápida.</div>
+        <div class="card-ingredients"><strong>Ingredientes</strong>Manteca de cacao, aceite de coco, aloe vera, vitamina E.</div>
+      </div>
+      <div class="card-footer"><div class="card-price">$1.000</div><button class="btn-add" onclick="addToCart('Crema Corporal', 1000)">Agregar</button></div>
+    </div>
+
+    <div class="product-card">
+      <div class="card-img"><img src="sales-terapeuticas.jpg" alt="Sales terapéuticas" onerror="this.parentElement.innerHTML='<div class=\'card-img-placeholder\'><span>🛁</span>Sales terapéuticas</div>'" /></div>
+      <div class="card-body">
+        <div class="card-name">Sales Terapéuticas</div>
+        <div class="card-desc">Sales de baño relajantes con propiedades terapéuticas. Un ritual de bienestar.</div>
+        <div class="card-ingredients"><strong>Ingredientes</strong>Sales de Epsom, lavanda, romero, aceite esencial de eucalipto.</div>
+      </div>
+      <div class="card-footer"><div class="card-price">$1.000</div><button class="btn-add" onclick="addToCart('Sales Terapéuticas', 1000)">Agregar</button></div>
+    </div>
+
+    <div class="product-card">
+      <div class="card-img"><img src="jabones-saponificados.jpg" alt="Jabones saponificados" onerror="this.parentElement.innerHTML='<div class=\'card-img-placeholder\'><span>🧼</span>Jabones</div>'" /><span class="card-badge natural">Artesanal</span></div>
+      <div class="card-body">
+        <div class="card-name">Jabones Saponificados</div>
+        <div class="card-desc">Proceso en frío que conserva la glicerina natural. Limpieza suave y nutritiva.</div>
+        <div class="card-ingredients"><strong>Ingredientes</strong>Aceite de oliva, aceite de coco, manteca de karité, arcilla, avena.</div>
+      </div>
+      <div class="card-footer"><div class="card-price">$1.000</div><button class="btn-add" onclick="addToCart('Jabones Saponificados', 1000)">Agregar</button></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════
+     SECCIÓN: MAQUILLAJE
+     ════════════════════════════════════════════════════════ -->
+<section class="catalog-section" data-section="maquillaje">
+  <div class="section-header">
+    <h2 class="section-title"><em>Maquillaje</em> Natural</h2>
+    <span class="section-count">3 productos</span>
+  </div>
+  <div class="product-grid">
+
+    <div class="product-card">
+      <div class="card-img"><img src="lip-gloss.jpg" alt="Lip gloss" onerror="this.parentElement.innerHTML='<div class=\'card-img-placeholder\'><span>✨</span>Lip gloss</div>'" /></div>
+      <div class="card-body">
+        <div class="card-name">Lip Gloss</div>
+        <div class="card-desc">Brillo de labios con pigmentos naturales. Nutritivo y de larga duración.</div>
+        <div class="card-ingredients"><strong>Ingredientes</strong>Aceite de ricino, vitamina E, manteca de cacao, pigmentos naturales.</div>
+      </div>
+      <div class="card-footer"><div class="card-price">$1.000</div><button class="btn-add" onclick="addToCart('Lip Gloss', 1000)">Agregar</button></div>
+    </div>
+
+    <div class="product-card">
+      <div class="card-img"><img src="sombra.jpg" alt="Sombra de ojos" onerror="this.parentElement.innerHTML='<div class=\'card-img-placeholder\'><span>🌟</span>Sombra ojos</div>'" /></div>
+      <div class="card-body">
+        <div class="card-name">Sombra de Ojos</div>
+        <div class="card-desc">Sombra mineral de larga duración con pigmentos naturales de alta intensidad.</div>
+        <div class="card-ingredients"><strong>Ingredientes</strong>Pigmentos minerales, manteca de karité, vitamina E.</div>
+      </div>
+      <div class="card-footer"><div class="card-price">$1.000</div><button class="btn-add" onclick="addToCart('Sombra de Ojos', 1000)">Agregar</button></div>
+    </div>
+
+    <div class="product-card">
+      <div class="card-img"><img src="labial.jpg" alt="Labial" onerror="this.parentElement.innerHTML='<div class=\'card-img-placeholder\'><span>💄</span>Labial</div>'" /></div>
+      <div class="card-body">
+        <div class="card-name">Labial</div>
+        <div class="card-desc">Color natural y duradero. Ingredientes que cuidan el labio mientras lo colorean.</div>
+        <div class="card-ingredients"><strong>Ingredientes</strong>Manteca de cacao, aceite de ricino, pigmentos minerales, vitamina E.</div>
+      </div>
+      <div class="card-footer"><div class="card-price">$1.000</div><button class="btn-add" onclick="addToCart('Labial', 1000)">Agregar</button></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════
+     SECCIÓN: OTROS
+     ════════════════════════════════════════════════════════ -->
+<section class="catalog-section" data-section="otros">
+  <div class="section-header">
+    <h2 class="section-title"><em>Otros</em> productos</h2>
+    <span class="section-count">4 productos</span>
+  </div>
+  <div class="product-grid">
+
+    <div class="product-card">
+      <div class="card-img"><img src="repelente.jpg" alt="Repelente" onerror="this.parentElement.innerHTML='<div class=\'card-img-placeholder\'><span>🌿</span>Repelente</div>'" /><span class="card-badge natural">Natural</span></div>
+      <div class="card-body">
+        <div class="card-name">Repelente</div>
+        <div class="card-desc">Repelente natural de insectos sin químicos agresivos. Apto para toda la familia.</div>
+        <div class="card-ingredients"><strong>Ingredientes</strong>Citronela, eucalipto, lavanda, geraniol.</div>
+      </div>
+      <div class="card-footer"><div class="card-price">$1.000</div><button class="btn-add" onclick="addToCart('Repelente', 1000)">Agregar</button></div>
+    </div>
+
+    <div class="product-card">
+      <div class="card-img"><img src="perfumes.jpg" alt="Perfumes artesanales" onerror="this.parentElement.innerHTML='<div class=\'card-img-placeholder\'><span>🌸</span>Perfumes</div>'" /><span class="card-badge premium">Artesanal</span></div>
+      <div class="card-body">
+        <div class="card-name">Perfumes Artesanales</div>
+        <div class="card-desc">Fragancias únicas con aceites esenciales puros. Notas cítricas, florales y amaderadas.</div>
+        <div class="card-ingredients"><strong>Ingredientes</strong>Aceites esenciales puros, fijadores naturales, alcohol vegetal.</div>
+      </div>
+      <div class="card-footer"><div class="card-price">$1.000</div><button class="btn-add" onclick="addToCart('Perfume Artesanal', 1000)">Agregar</button></div>
+    </div>
+
+    <div class="product-card">
+      <div class="card-img"><img src="oleo-gel-dolores.jpg" alt="Óleo gel dolores" onerror="this.parentElement.innerHTML='<div class=\'card-img-placeholder\'><span>💆</span>Óleo gel</div>'" /></div>
+      <div class="card-body">
+        <div class="card-name">Óleo Gel para Dolores Articulares</div>
+        <div class="card-desc">Alivio natural para dolores musculares y articulares. Efecto calmante y relajante.</div>
+        <div class="card-ingredients"><strong>Ingredientes</strong>Árnica, mentol, alcanfor, romero, eucalipto.</div>
+      </div>
+      <div class="card-footer"><div class="card-price">$1.000</div><button class="btn-add" onclick="addToCart('Óleo Gel Dolores', 1000)">Agregar</button></div>
+    </div>
+
+    <div class="product-card">
+      <div class="card-img"><img src="crema-panalera.jpg" alt="Crema pañalera" onerror="this.parentElement.innerHTML='<div class=\'card-img-placeholder\'><span>👶</span>Crema pañalera</div>'" /><span class="card-badge natural">Bebé</span></div>
+      <div class="card-body">
+        <div class="card-name">Crema Pañalera</div>
+        <div class="card-desc">Protege y regenera la piel del bebé en zona de pañal. Suave y segura.</div>
+        <div class="card-ingredients"><strong>Ingredientes</strong>Óxido de zinc, manteca de karité, aloe vera, caléndula.</div>
+      </div>
+      <div class="card-footer"><div class="card-price">$1.000</div><button class="btn-add" onclick="addToCart('Crema Pañalera', 1000)">Agregar</button></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- spacer -->
+<div style="height:60px;"></div>
+
+<!-- ── FOOTER ─────────────────────────────────────────── -->
+<footer>
+  <div class="footer-logo">Simple</div>
+  <div class="footer-tagline">Cosmética Natural · Ingredientes puros, resultados reales</div>
+  <div class="footer-social">
+    <a class="social-icon" href="#" title="Instagram">📷</a>
+    <a class="social-icon" href="#" title="Facebook">📘</a>
+    <a class="social-icon" href="#" title="WhatsApp">💬</a>
+    <a class="social-icon" href="#" title="TikTok">🎵</a>
+  </div>
+  <div class="footer-links">
+    <a href="#">Sobre nosotras</a>
+    <a href="#">Cómo comprar</a>
+    <a href="#">Envíos</a>
+    <a href="#">Preguntas frecuentes</a>
+    <a href="#">Contacto</a>
+    <a href="#">Política de privacidad</a>
+  </div>
+  <hr />
+  <small>© 2025 Simple Cosmética Natural · Todos los derechos reservados · Elaborado con 💗 de forma artesanal</small>
+</footer>
+
+<!-- ── CART FLOAT ──────────────────────────────────────── -->
+<div class="cart-float">
+  <button class="cart-btn" onclick="toggleCart()" title="Ver carrito">
+    🛍️
+    <span class="cart-count" id="cartCount">0</span>
+  </button>
+</div>
+<div class="toast" id="toast"></div>
+
+<!-- ── CART MODAL ──────────────────────────────────────── -->
+<div id="cartModal" style="display:none;position:fixed;inset:0;z-index:300;background:rgba(0,0,0,.4);backdrop-filter:blur(4px);" onclick="closeCartOutside(event)">
+  <div style="position:absolute;right:0;top:0;bottom:0;width:min(400px,100%);background:white;box-shadow:-8px 0 40px rgba(0,0,0,.15);display:flex;flex-direction:column;border-radius:24px 0 0 24px;overflow:hidden;">
+    <div style="padding:24px 24px 16px;background:linear-gradient(135deg,var(--pink) 0%,var(--blue-light) 100%);border-bottom:2px solid var(--pink-mid);display:flex;align-items:center;justify-content:space-between;">
+      <div>
+        <div style="font-family:'Dancing Script',cursive;font-size:1.6rem;color:var(--pink-btn);font-weight:700;">Mi carrito</div>
+        <div style="font-size:.78rem;color:var(--muted);">Simple Cosmética Natural</div>
+      </div>
+      <button onclick="toggleCart()" style="background:none;border:none;font-size:1.4rem;cursor:pointer;color:var(--muted);">✕</button>
+    </div>
+    <div id="cartItems" style="flex:1;overflow-y:auto;padding:16px 24px;display:flex;flex-direction:column;gap:10px;"></div>
+    <div style="padding:16px 24px 24px;border-top:1.5px solid var(--pink-mid);background:var(--cream);">
+      <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:16px;">
+        <span style="font-size:.9rem;color:var(--muted);">Total estimado</span>
+        <span id="cartTotal" style="font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;color:var(--pink-btn);">$0</span>
+      </div>
+      <button onclick="checkout()" style="width:100%;background:var(--pink-btn);color:white;border:none;border-radius:999px;padding:14px;font-size:.9rem;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;box-shadow:0 6px 20px rgba(224,92,126,.35);transition:background .2s;">Consultar por WhatsApp 💬</button>
+      <button onclick="clearCart()" style="width:100%;background:none;border:none;color:var(--muted);font-size:.78rem;cursor:pointer;margin-top:8px;font-family:'DM Sans',sans-serif;">Vaciar carrito</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  // ── CART ──────────────────────────────────────────────
+  let cart = [];
+
+  function addToCart(name, price) {
+    const existing = cart.find(i => i.name === name);
+    if (existing) existing.qty++;
+    else cart.push({ name, price, qty: 1 });
+    updateCartUI();
+    showToast('✓ ' + name.split(' ').slice(0,3).join(' ') + ' agregado');
+  }
+
+  function updateCartUI() {
+    const total = cart.reduce((s, i) => s + i.price * i.qty, 0);
+    document.getElementById('cartCount').textContent = cart.reduce((s,i)=>s+i.qty,0);
+    document.getElementById('cartTotal').textContent = '$' + total.toLocaleString('es-AR');
+    const itemsEl = document.getElementById('cartItems');
+    if (cart.length === 0) {
+      itemsEl.innerHTML = '<div style="text-align:center;color:var(--muted);padding:40px 0;font-size:.9rem;">Tu carrito está vacío 🛍️</div>';
+      return;
+    }
+    itemsEl.innerHTML = cart.map((item, idx) => `
+      <div style="display:flex;align-items:center;gap:12px;background:var(--pink);border-radius:12px;padding:12px 14px;">
+        <div style="flex:1;min-width:0;">
+          <div style="font-size:.82rem;font-weight:600;color:var(--dark);line-height:1.3;">${item.name}</div>
+          <div style="font-size:.75rem;color:var(--muted);">$${item.price.toLocaleString('es-AR')} c/u</div>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;">
+          <button onclick="changeQty(${idx},-1)" style="width:26px;height:26px;border-radius:50%;border:1.5px solid var(--pink-mid);background:white;cursor:pointer;font-size:.9rem;display:flex;align-items:center;justify-content:center;color:var(--pink-btn);">−</button>
+          <span style="font-weight:700;font-size:.88rem;color:var(--dark);min-width:16px;text-align:center;">${item.qty}</span>
+          <button onclick="changeQty(${idx},1)" style="width:26px;height:26px;border-radius:50%;border:1.5px solid var(--pink-mid);background:white;cursor:pointer;font-size:.9rem;display:flex;align-items:center;justify-content:center;color:var(--pink-btn);">+</button>
+        </div>
+        <div style="font-weight:700;font-size:.88rem;color:var(--pink-btn);min-width:55px;text-align:right;">$${(item.price*item.qty).toLocaleString('es-AR')}</div>
+      </div>
+    `).join('');
+  }
+
+  function changeQty(idx, delta) {
+    cart[idx].qty += delta;
+    if (cart[idx].qty <= 0) cart.splice(idx, 1);
+    updateCartUI();
+  }
+
+  function clearCart() { cart = []; updateCartUI(); }
+
+  function toggleCart() {
+    const m = document.getElementById('cartModal');
+    m.style.display = m.style.display === 'none' ? 'block' : 'none';
+    if (m.style.display === 'block') updateCartUI();
+  }
+
+  function closeCartOutside(e) {
+    if (e.target === document.getElementById('cartModal')) toggleCart();
+  }
+
+  function checkout() {
+    if (cart.length === 0) return;
+    const msg = '¡Hola! Me gustaría consultar por los siguientes productos de Simple Cosmética Natural:%0A%0A' +
+      cart.map(i => `• ${i.name} x${i.qty} — $${(i.price*i.qty).toLocaleString('es-AR')}`).join('%0A') +
+      '%0A%0A*Total: $' + cart.reduce((s,i)=>s+i.price*i.qty,0).toLocaleString('es-AR') + '*';
+    window.open('https://wa.me/?text=' + msg, '_blank');
+  }
+
+  // ── TOAST ─────────────────────────────────────────────
+  let toastTimer;
+  function showToast(msg) {
+    const t = document.getElementById('toast');
+    t.textContent = msg;
+    t.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => t.classList.remove('show'), 2200);
+  }
+
+  // ── VARIANTS TOGGLE ───────────────────────────────────
+  function toggleVariants(btn) {
+    btn.classList.toggle('open');
+    const list = btn.nextElementSibling;
+    list.classList.toggle('open');
+  }
+
+  // ── NAV FILTER ────────────────────────────────────────
+  document.querySelectorAll('.nav-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const filter = btn.dataset.filter;
+      if (filter === 'all') {
+        document.querySelectorAll('[data-section]').forEach(el => el.classList.remove('hidden'));
+      } else {
+        document.querySelectorAll('[data-section]').forEach(el => {
+          el.classList.toggle('hidden', el.dataset.section !== filter);
+        });
+      }
+    });
+  });
+
+  updateCartUI();
+</script>
+</body>
+</html>
