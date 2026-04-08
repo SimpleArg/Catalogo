@@ -521,32 +521,111 @@
   <div class="promo-card">
     <div class="promo-left">
       <span class="promo-tag">✨ Oferta especial</span>
-      <div class="promo-title">Kit Shampoo +<br>Acondicionador + Mascarilla</div>
-      <div class="promo-subtitle">El ritual completo para un cabello sano y brillante</div>
-      <div class="promo-products">Shampoo sólido · Acondicionador sólido · Mascarilla capilar 200cc</div>
+      <div class="promo-title">Shampoo Sólido +<br>Acondicionador Sólido</div>
+      <div class="promo-subtitle"><br></div>
+      <div class="promo-products">Shampoo sólido = 12.000 <br> Acondicionador sólido = 12.000</div>
     </div>
     <div class="promo-badge">
       <div class="promo-pct">25%</div>
       <div class="promo-off">de descuento</div>
+<div class="card-footer">
+        <div class="card-price">$18.000 🏷️ </div>
+        <button class="btn-add" onclick="addToCart('Acondicionador sin Enjuague', 18000)">Agregar</button>
+      </div>
+    </div>
     </div>
   </div>
 </div>
 
+
 <!-- ════════════════════════════════════════════════════════
-     SECCIÓN: CABELLO — FAMILIAS
+     SECCIÓN: PRODUCTOS
      ════════════════════════════════════════════════════════ -->
 <section class="catalog-section" data-section="cabello">
   <div class="section-header">
-    <h2 class="section-title"><em>Cabello</em> — Línea principal</h2>
-    <span class="section-count">4 familias</span>
+    <h2 class="section-title"><em>Cabello</em> </h2>
+    <span class="section-count">9 familias</span>
   </div>
   <div class="product-grid">
 
-    <!-- 1. Shampoo Sólido -->
+<!-- 4. Acondicionador en Crema -->
     <div class="product-card family-card">
       <div class="card-img">
+        <img src="acondicionador-crema.jpg" alt="Acondicionador en crema" onerror="this.parentElement.innerHTML='<div class=\'card-img-placeholder\'><span>🫙</span>Acond. en crema</div>'" />
+        <span class="card-badge">Cabello</span>
+      </div>
+      <div class="card-body">
+        <div class="card-name">Acondicionador en Crema <small style="font-size:.75rem;font-weight:400;"></small></div>
+        <div class="card-desc">Post-lavado para hidratación profunda. Deja el cabello suave y manejable.</div>
+        <div class="card-ingredients">
+          <strong>Indicaciones</strong>
+          Producto orgánico artesanal libre de parabenos. Uso diario. 200 cc.
+        </div>
+        <button class="variants-toggle" onclick="toggleVariants(this)">
+          Ver variantes (4) <span class="arrow">▼</span>
+        </button>
+        <div class="variants-list">
+          <div class="variant-row"><span class="variant-row-name">Restaurador</span><span class="variant-row-price">$12.000</span><button class="btn-variant-add" onclick="addToCart('Acond. Crema — Restaurador', 12000)">+</button></div>
+          <div class="variant-row"><span class="variant-row-name">Familiar</span><span class="variant-row-price">$12.000</span><button class="btn-variant-add" onclick="addToCart('Acond. Crema — Familiar', 12000)">+</button></div>
+          <div class="variant-row"><span class="variant-row-name">Pelos lacios</span><span class="variant-row-price">$12.000</span><button class="btn-variant-add" onclick="addToCart('Acond. Crema — Pelos lacios', 12000)">+</button></div>
+          <div class="variant-row"><span class="variant-row-name">Stop caída</span><span class="variant-row-price">$12.000</span><button class="btn-variant-add" onclick="addToCart('Acond. Crema —  Stop caída', 12000)">+</button></div>
+        </div>
+      </div>
+      <div class="card-footer">
+        <div class="card-price">$12.000 <small>c/u</small></div>
+      </div>
+    </div>
+
+<!-- 3. Acondicionador sin enjuague -->
+<div class="product-card">
+      <div class="card-img">
+        <img src="acondicionador-peinar.jpg" alt="Acondicionador sin enjuague" onerror="this.parentElement.innerHTML='<div class=\'card-img-placeholder\'><span>💆</span>Sin enjuague</div>'" />
+<span class="card-badge">Cabello</span>
+      </div>
+      <div class="card-body">
+        <div class="card-name">Acondicionador sin Enjuague <small style="font-size:.75rem;font-weight:400;">125 cc</small></div>
+        <div class="card-desc">Facilita el peinado, reduce el frizz y aporta brillo.</div>
+        <div class="card-ingredients"><strong>Indicaciones</strong>Sin necesidad de enjuague. Olvídate de los nuditos! Pelo dócil y con brillo. 125cc</div>
+      </div>
+      <div class="card-footer">
+        <div class="card-price">$8.000</div>
+        <button class="btn-add" onclick="addToCart('Acondicionador sin Enjuague', 8000)">Agregar</button>
+      </div>
+    </div>
+
+<!-- 3. Acondicionador Sólido -->
+    <div class="product-card family-card">
+      <div class="card-img">
+        <img src="acondicionador-solido.jpg" alt="Acondicionador sólido" onerror="this.parentElement.innerHTML='<div class=\'card-img-placeholder\'><span>✨</span>Acondicionador sólido</div>'" />
+<span class="card-badge">Cabello</span>
+        
+      </div>
+      <div class="card-body">
+        <div class="card-name">Acondicionador Sólido</div>
+        <div class="card-desc">Larga duración, sin plástico. Suavidad y nutrición con ingredientes naturales.</div>
+        <div class="card-ingredients">
+          <strong>Ingredientes</strong>
+          Manteca de cacao, aceite de argán, proteína de trigo, keratina vegetal.
+        </div>
+        <button class="variants-toggle" onclick="toggleVariants(this)">
+          Ver variantes (3) <span class="arrow">▼</span>
+        </button>
+        <div class="variants-list">
+          <div class="variant-row"><span class="variant-row-name">Todo tipo de pelo</span><span class="variant-row-price">$12.000</span><button class="btn-variant-add" onclick="addToCart('Acondicionador Sólido — Todo tipo', 12000)">+</button></div>
+          <div class="variant-row"><span class="variant-row-name">Stop caída</span><span class="variant-row-price">$12.000</span><button class="btn-variant-add" onclick="addToCart('Acondicionador Sólido — Stop caída', 12000)">+</button></div>
+          <div class="variant-row"><span class="variant-row-name">Rulos</span><span class="variant-row-price">$12.000</span><button class="btn-variant-add" onclick="addToCart('Acondicionador Sólido — Rulos', 12000)">+</button></div>
+        </div>
+      </div>
+      <div class="card-footer">
+        <div class="card-price">$12.000 <small>c/u</small></div>
+      </div>
+    </div>
+
+    <!-- 1. Shampoo Sólido -->
+    <div class="product-card family-card cabello">
+      <div class="card-img">
         <img src="shampoo-solido.jpg" alt="Shampoo sólido" onerror="this.parentElement.innerHTML='<div class=\'card-img-placeholder\'><span>🧴</span>Shampoo sólido</div>'" />
-        <span class="card-badge natural">Artesanal</span>
+        <span class="card-badge cabello">Cabello</span>
       </div>
       <div class="card-body">
         <div class="card-name">Shampoo Sólido</div>
@@ -577,7 +656,7 @@
     <div class="product-card family-card">
       <div class="card-img">
         <img src="tonico-capilar.jpg" alt="Tónico capilar" onerror="this.parentElement.innerHTML='<div class=\'card-img-placeholder\'><span>💧</span>Tónico capilar</div>'" />
-        <span class="card-badge">60 cc</span>
+        <span class="card-badge">Cabello</span>
       </div>
       <div class="card-body">
         <div class="card-name">Tónico Capilar <small style="font-size:.75rem;font-weight:400;">60 cc</small></div>
@@ -599,88 +678,14 @@
       </div>
     </div>
 
-    <!-- 3. Acondicionador Sólido -->
-    <div class="product-card family-card">
-      <div class="card-img">
-        <img src="acondicionador-solido.jpg" alt="Acondicionador sólido" onerror="this.parentElement.innerHTML='<div class=\'card-img-placeholder\'><span>✨</span>Acondicionador sólido</div>'" />
-        <span class="card-badge natural">Eco</span>
-      </div>
-      <div class="card-body">
-        <div class="card-name">Acondicionador Sólido</div>
-        <div class="card-desc">Larga duración, sin plástico. Suavidad y nutrición con ingredientes naturales.</div>
-        <div class="card-ingredients">
-          <strong>Ingredientes</strong>
-          Manteca de cacao, aceite de argán, proteína de trigo, keratina vegetal.
-        </div>
-        <button class="variants-toggle" onclick="toggleVariants(this)">
-          Ver variantes (3) <span class="arrow">▼</span>
-        </button>
-        <div class="variants-list">
-          <div class="variant-row"><span class="variant-row-name">Todo tipo de pelo</span><span class="variant-row-price">$12.000</span><button class="btn-variant-add" onclick="addToCart('Acondicionador Sólido — Todo tipo', 12000)">+</button></div>
-          <div class="variant-row"><span class="variant-row-name">Stop caída</span><span class="variant-row-price">$12.000</span><button class="btn-variant-add" onclick="addToCart('Acondicionador Sólido — Stop caída', 12000)">+</button></div>
-          <div class="variant-row"><span class="variant-row-name">Rulos</span><span class="variant-row-price">$12.000</span><button class="btn-variant-add" onclick="addToCart('Acondicionador Sólido — Rulos', 12000)">+</button></div>
-        </div>
-      </div>
-      <div class="card-footer">
-        <div class="card-price">$12.000 <small>c/u</small></div>
-      </div>
-    </div>
+        
 
-    <!-- 4. Acondicionador en Crema -->
-    <div class="product-card family-card">
-      <div class="card-img">
-        <img src="acondicionador-crema.jpg" alt="Acondicionador en crema" onerror="this.parentElement.innerHTML='<div class=\'card-img-placeholder\'><span>🫙</span>Acond. en crema</div>'" />
-        <span class="card-badge">200 cc</span>
-      </div>
-      <div class="card-body">
-        <div class="card-name">Acondicionador en Crema <small style="font-size:.75rem;font-weight:400;"></small></div>
-        <div class="card-desc">Post-lavado para hidratación profunda. Deja el cabello suave y manejable.</div>
-        <div class="card-ingredients">
-          <strong>Indicaciones</strong>
-          Producto orgánico artesanal libre de parabenos. Uso diario. 200 cc.
-        </div>
-        <button class="variants-toggle" onclick="toggleVariants(this)">
-          Ver variantes (4) <span class="arrow">▼</span>
-        </button>
-        <div class="variants-list">
-          <div class="variant-row"><span class="variant-row-name">Restaurador</span><span class="variant-row-price">$12.000</span><button class="btn-variant-add" onclick="addToCart('Acond. Crema — Restaurador', 12000)">+</button></div>
-          <div class="variant-row"><span class="variant-row-name">Familiar</span><span class="variant-row-price">$12.000</span><button class="btn-variant-add" onclick="addToCart('Acond. Crema — Familiar', 12000)">+</button></div>
-          <div class="variant-row"><span class="variant-row-name">Pelos lacios</span><span class="variant-row-price">$12.000</span><button class="btn-variant-add" onclick="addToCart('Acond. Crema — Pelos lacios', 12000)">+</button></div>
-          <div class="variant-row"><span class="variant-row-name">Stop caída</span><span class="variant-row-price">$12.000</span><button class="btn-variant-add" onclick="addToCart('Acond. Crema —  Stop caída', 12000)">+</button></div>
-        </div>
-      </div>
-      <div class="card-footer">
-        <div class="card-price">$12.000 <small>c/u</small></div>
-      </div>
-    </div>
 
-  </div><!-- /product-grid familias cabello -->
-
-  <!-- Productos simples de cabello -->
-  <div class="section-header" style="margin-top:40px;">
-    <h3 class="section-title" style="font-size:1.3rem;">Tratamientos &amp; extras</h3>
-    <span class="section-count">5 productos</span>
-  </div>
-  <div class="product-grid">
-
-    <div class="product-card">
-      <div class="card-img">
-        <img src="acondicionador-peinar.jpg" alt="Acondicionador sin enjuague" onerror="this.parentElement.innerHTML='<div class=\'card-img-placeholder\'><span>💆</span>Sin enjuague</div>'" />
-      </div>
-      <div class="card-body">
-        <div class="card-name">Acondicionador sin Enjuague <small style="font-size:.75rem;font-weight:400;">125 cc</small></div>
-        <div class="card-desc">Facilita el peinado, reduce el frizz y aporta brillo.</div>
-        <div class="card-ingredients"><strong>Indicaciones</strong>Sin necesidad de enjuague. Olvídate de los nuditos! Pelo dócil y con brillo. 125cc</div>
-      </div>
-      <div class="card-footer">
-        <div class="card-price">$8.000</div>
-        <button class="btn-add" onclick="addToCart('Acondicionador sin Enjuague', 8000)">Agregar</button>
-      </div>
-    </div>
 
     <div class="product-card">
       <div class="card-img">
         <img src="protector-termico.jpg" alt="Protector térmico" onerror="this.parentElement.innerHTML='<div class=\'card-img-placeholder\'><span>🔥</span>Protector térmico</div>'" />
+<span class="card-badge">Cabello</span>
       </div>
       <div class="card-body">
         <div class="card-name">Protector Térmico Capilar <small style="font-size:.75rem;font-weight:400;">60 cc</small></div>
@@ -696,6 +701,7 @@
     <div class="product-card">
       <div class="card-img">
         <img src="oleo-capilar.jpg" alt="Óleo capilar" onerror="this.parentElement.innerHTML='<div class=\'card-img-placeholder\'><span>✨</span>Óleo capilar</div>'" />
+<span class="card-badge">Cabello</span>
       </div>
       <div class="card-body">
         <div class="card-name">Óleo Capilar para Puntas <small style="font-size:.75rem;font-weight:400;">10 cc</small></div>
@@ -711,7 +717,7 @@
     <div class="product-card">
       <div class="card-img">
         <img src="mascarilla-capilar.jpg" alt="Mascarilla capilar" onerror="this.parentElement.innerHTML='<div class=\'card-img-placeholder\'><span>🫙</span>Mascarilla capilar</div>'" />
-        <span class="card-badge premium">Top</span>
+        <span class="card-badge">Cabello</span>
       </div>
       <div class="card-body">
         <div class="card-name">Mascarilla Capilar <small style="font-size:.75rem;font-weight:400;">200 cc</small></div>
@@ -727,7 +733,7 @@
     <div class="product-card">
       <div class="card-img">
         <img src="gel-capilar.jpg" alt="Gel capilar" onerror="this.parentElement.innerHTML='<div class=\'card-img-placeholder\'><span>💚</span>Gel capilar</div>'" />
-        <span class="card-badge natural">Orgánico</span>
+        <span class="card-badge">Cabello</span>
       </div>
       <div class="card-body">
         <div class="card-name">Gel Capilar <small style="font-size:.75rem;font-weight:400;">100 g</small></div>
@@ -740,6 +746,17 @@
       </div>
     </div>
 
+  </div><!-- /product-grid familias cabello -->
+
+ <!-- <!-- Productos simples de cabello -->
+<!--  <div class="section-header" style="margin-top:40px;">-->
+  <!--  <h3 class="section-title" style="font-size:1.3rem;">Tratamientos &amp; extras</h3>-->
+  <!--  <span class="section-count">5 productos</span>-->
+  </div>
+ <!-- <div class="product-grid">-->
+
+    
+
   </div>
 </section>
 
@@ -749,15 +766,36 @@
 <section class="catalog-section" data-section="rostro">
   <div class="section-header">
     <h2 class="section-title"><em>Rostro</em></h2>
-    <span class="section-count">14 productos</span>
+    <span class="section-count">2 productos</span>
   </div>
   <div class="product-grid">
+
+<!--<div class="product-card">
+      <div class="card-img"><img src="after-shave.jpg" alt="After shave" onerror="this.parentElement.innerHTML='<div class=\'card-img-placeholder\'><span>🌱</span>After shave</div>'" /></div>
+      <div class="card-body">
+        <div class="card-name">After Shave</div>
+        <div class="card-desc">Calma y suaviza la piel tras el afeitado. Con efecto refrescante instantáneo.</div>
+        <div class="card-ingredients"><strong>Ingredientes</strong>Aloe vera, hamamelis, mentol, aceite esencial de lavanda.</div>
+      </div>
+      <div class="card-footer"><div class="card-price">$1.000</div><button class="btn-add" onclick="addToCart('After Shave', 1000)">Agregar</button></div>
+    </div>-->
+
+<div class="product-card">
+      <div class="card-img"><img src="crema-afeitar-barra.jpg" alt="Crema de afeitar en barra" onerror="this.parentElement.innerHTML='<div class=\'card-img-placeholder\'><span>🪒</span>Crema afeitar</div>'" /></div>
+<span class="card-badge">Rostro</span>
+      <div class="card-body">
+        <div class="card-name">Crema en Barra para Afeitar <small style="font-size:.75rem;font-weight:400;">65 g</small></div>
+        <div class="card-desc">Sólida, suaviza y protege la piel durante el afeitado. Sin plástico.</div>
+        <div class="card-ingredients"><strong>Ingredientes</strong>Manteca de karité, aceite de coco, arcilla kaolín, aloe vera.</div>
+      </div>
+      <div class="card-footer"><div class="card-price">$7.000</div><button class="btn-add" onclick="addToCart('Crema Afeitar en Barra', 7000)">Agregar</button></div>
+    </div>
 
     <!-- Crema Facial familia -->
     <div class="product-card family-card">
       <div class="card-img">
         <img src="cremas-faciales.jpg" alt="Crema facial" onerror="this.parentElement.innerHTML='<div class=\'card-img-placeholder\'><span>🌸</span>Crema facial</div>'" />
-        <span class="card-badge">50 cc</span>
+        <span class="card-badge">Rostro</span>
       </div>
       <div class="card-body">
         <div class="card-name">Crema Facial <small style="font-size:.75rem;font-weight:400;">50 cc</small></div>
@@ -779,7 +817,7 @@
     </div>
 
     <!-- Crema Facial Premium familia -->
-    <div class="product-card family-card">
+  <!--  <div class="product-card family-card">
       <div class="card-img">
         <img src="cremas-faciales-premium.jpg" alt="Crema facial premium" onerror="this.parentElement.innerHTML='<div class=\'card-img-placeholder\'><span>💎</span>Crema Premium</div>'" />
         <span class="card-badge premium">Premium</span>
@@ -798,10 +836,10 @@
         </div>
       </div>
       <div class="card-footer"><div class="card-price">$17.000 <small>c/u</small></div></div>
-    </div>
+    </div>-->
 
     <!-- Simples rostro -->
-    <div class="product-card">
+  <!--  <div class="product-card">
       <div class="card-img"><img src="tonico-facial.jpg" alt="Tónico facial" onerror="this.parentElement.innerHTML='<div class=\'card-img-placeholder\'><span>🌹</span>Tónico facial</div>'" /></div>
       <div class="card-body">
         <div class="card-name">Tónico Facial</div>
@@ -809,9 +847,9 @@
         <div class="card-ingredients"><strong>Ingredientes</strong>Agua de rosas, hamamelis, aloe vera, ácido hialurónico.</div>
       </div>
       <div class="card-footer"><div class="card-price">$1.000</div><button class="btn-add" onclick="addToCart('Tónico Facial', 1000)">Agregar</button></div>
-    </div>
+    </div>-->
 
-    <div class="product-card">
+   <!-- <div class="product-card">
       <div class="card-img"><img src="gel-limpieza.jpg" alt="Gel de limpieza" onerror="this.parentElement.innerHTML='<div class=\'card-img-placeholder\'><span>🫧</span>Gel limpieza</div>'" /></div>
       <div class="card-body">
         <div class="card-name">Gel de Limpieza Facial</div>
@@ -819,9 +857,9 @@
         <div class="card-ingredients"><strong>Ingredientes</strong>Aloe vera, hamamelis, aceite de árbol de té, glicerina vegetal.</div>
       </div>
       <div class="card-footer"><div class="card-price">$1.000</div><button class="btn-add" onclick="addToCart('Gel de Limpieza Facial', 1000)">Agregar</button></div>
-    </div>
+    </div>-->
 
-    <div class="product-card">
+   <!-- <div class="product-card">
       <div class="card-img"><img src="crema-limpieza-facial.jpg" alt="Crema de limpieza" onerror="this.parentElement.innerHTML='<div class=\'card-img-placeholder\'><span>🌿</span>Crema limpieza</div>'" /></div>
       <div class="card-body">
         <div class="card-name">Crema de Limpieza Facial</div>
@@ -829,9 +867,9 @@
         <div class="card-ingredients"><strong>Ingredientes</strong>Manteca de karité, aceite de jojoba, aloe vera, arcilla blanca.</div>
       </div>
       <div class="card-footer"><div class="card-price">$1.000</div><button class="btn-add" onclick="addToCart('Crema de Limpieza Facial', 1000)">Agregar</button></div>
-    </div>
+    </div>-->
 
-    <div class="product-card">
+   <!-- <div class="product-card">
       <div class="card-img"><img src="serum-facial.jpg" alt="Sérum facial" onerror="this.parentElement.innerHTML='<div class=\'card-img-placeholder\'><span>💫</span>Sérum facial</div>'" /><span class="card-badge premium">Premium</span></div>
       <div class="card-body">
         <div class="card-name">Sérum Facial</div>
@@ -839,9 +877,9 @@
         <div class="card-ingredients"><strong>Ingredientes</strong>Ácido hialurónico, vitamina C, aceite de rosa mosqueta, coenzima Q10.</div>
       </div>
       <div class="card-footer"><div class="card-price">$1.000</div><button class="btn-add" onclick="addToCart('Sérum Facial', 1000)">Agregar</button></div>
-    </div>
+    </div>-->
 
-    <div class="product-card">
+   <!-- <div class="product-card">
       <div class="card-img"><img src="balsamo-labial.jpg" alt="Bálsamo labial" onerror="this.parentElement.innerHTML='<div class=\'card-img-placeholder\'><span>💋</span>Bálsamo labial</div>'" /></div>
       <div class="card-body">
         <div class="card-name">Bálsamo Labial</div>
@@ -849,9 +887,9 @@
         <div class="card-ingredients"><strong>Ingredientes</strong>Manteca de cacao, aceite de coco, vitamina E, aceite esencial de menta.</div>
       </div>
       <div class="card-footer"><div class="card-price">$1.000</div><button class="btn-add" onclick="addToCart('Bálsamo Labial', 1000)">Agregar</button></div>
-    </div>
+    </div>-->
 
-    <div class="product-card">
+  <!--  <div class="product-card">
       <div class="card-img"><img src="agua-micelar.jpg" alt="Agua micelar" onerror="this.parentElement.innerHTML='<div class=\'card-img-placeholder\'><span>💧</span>Agua micelar</div>'" /></div>
       <div class="card-body">
         <div class="card-name">Agua Micelar</div>
@@ -859,9 +897,9 @@
         <div class="card-ingredients"><strong>Ingredientes</strong>Agua de rosas, hamamelis, aloe vera, glicerina vegetal.</div>
       </div>
       <div class="card-footer"><div class="card-price">$1.000</div><button class="btn-add" onclick="addToCart('Agua Micelar', 1000)">Agregar</button></div>
-    </div>
+    </div>-->
 
-    <div class="product-card">
+  <!--  <div class="product-card">
       <div class="card-img"><img src="gel-contorno-ojos.jpg" alt="Gel contorno de ojos" onerror="this.parentElement.innerHTML='<div class=\'card-img-placeholder\'><span>👁️</span>Contorno ojos</div>'" /></div>
       <div class="card-body">
         <div class="card-name">Gel Contorno de Ojos</div>
@@ -869,7 +907,9 @@
         <div class="card-ingredients"><strong>Ingredientes</strong>Ácido hialurónico, cafeína, aloe vera, vitamina C.</div>
       </div>
       <div class="card-footer"><div class="card-price">$1.000</div><button class="btn-add" onclick="addToCart('Gel Contorno de Ojos', 1000)">Agregar</button></div>
-    </div>
+    </div>-->
+
+
 
   </div>
 </section>
@@ -880,31 +920,15 @@
 <section class="catalog-section" data-section="cuerpo">
   <div class="section-header">
     <h2 class="section-title"><em>Cuerpo</em></h2>
-    <span class="section-count">6 productos</span>
+    <span class="section-count">2 productos</span>
   </div>
   <div class="product-grid">
 
-    <div class="product-card">
-      <div class="card-img"><img src="crema-afeitar-barra.jpg" alt="Crema de afeitar en barra" onerror="this.parentElement.innerHTML='<div class=\'card-img-placeholder\'><span>🪒</span>Crema afeitar</div>'" /></div>
-      <div class="card-body">
-        <div class="card-name">Crema en Barra para Afeitar <small style="font-size:.75rem;font-weight:400;">65 g</small></div>
-        <div class="card-desc">Sólida, suaviza y protege la piel durante el afeitado. Sin plástico.</div>
-        <div class="card-ingredients"><strong>Ingredientes</strong>Manteca de karité, aceite de coco, arcilla kaolín, aloe vera.</div>
-      </div>
-      <div class="card-footer"><div class="card-price">$7.000</div><button class="btn-add" onclick="addToCart('Crema Afeitar en Barra', 7000)">Agregar</button></div>
-    </div>
+    
 
-    <div class="product-card">
-      <div class="card-img"><img src="after-shave.jpg" alt="After shave" onerror="this.parentElement.innerHTML='<div class=\'card-img-placeholder\'><span>🌱</span>After shave</div>'" /></div>
-      <div class="card-body">
-        <div class="card-name">After Shave</div>
-        <div class="card-desc">Calma y suaviza la piel tras el afeitado. Con efecto refrescante instantáneo.</div>
-        <div class="card-ingredients"><strong>Ingredientes</strong>Aloe vera, hamamelis, mentol, aceite esencial de lavanda.</div>
-      </div>
-      <div class="card-footer"><div class="card-price">$1.000</div><button class="btn-add" onclick="addToCart('After Shave', 1000)">Agregar</button></div>
-    </div>
+    
 
-    <div class="product-card">
+   <!-- <div class="product-card">
       <div class="card-img"><img src="crema-corporal-manos.jpg" alt="Crema corporal y manos" onerror="this.parentElement.innerHTML='<div class=\'card-img-placeholder\'><span>🤲</span>Crema manos</div>'" /></div>
       <div class="card-body">
         <div class="card-name">Crema Corporal y Manos</div>
@@ -912,9 +936,9 @@
         <div class="card-ingredients"><strong>Ingredientes</strong>Manteca de karité, aceite de almendras, aloe vera, vitamina E.</div>
       </div>
       <div class="card-footer"><div class="card-price">$1.000</div><button class="btn-add" onclick="addToCart('Crema Corporal y Manos', 1000)">Agregar</button></div>
-    </div>
+    </div>-->
 
-    <div class="product-card">
+  <!--  <div class="product-card">
       <div class="card-img"><img src="crema-corporal.jpg" alt="Crema corporal" onerror="this.parentElement.innerHTML='<div class=\'card-img-placeholder\'><span>🧴</span>Crema corporal</div>'" /></div>
       <div class="card-body">
         <div class="card-name">Crema Corporal</div>
@@ -922,9 +946,9 @@
         <div class="card-ingredients"><strong>Ingredientes</strong>Manteca de cacao, aceite de coco, aloe vera, vitamina E.</div>
       </div>
       <div class="card-footer"><div class="card-price">$1.000</div><button class="btn-add" onclick="addToCart('Crema Corporal', 1000)">Agregar</button></div>
-    </div>
+    </div>-->
 
-    <div class="product-card">
+  <!--  <div class="product-card">
       <div class="card-img"><img src="sales-terapeuticas.jpg" alt="Sales terapéuticas" onerror="this.parentElement.innerHTML='<div class=\'card-img-placeholder\'><span>🛁</span>Sales terapéuticas</div>'" /></div>
       <div class="card-body">
         <div class="card-name">Sales Terapéuticas</div>
@@ -932,20 +956,21 @@
         <div class="card-ingredients"><strong>Ingredientes</strong>Sales de Epsom, lavanda, romero, aceite esencial de eucalipto.</div>
       </div>
       <div class="card-footer"><div class="card-price">$1.000</div><button class="btn-add" onclick="addToCart('Sales Terapéuticas', 1000)">Agregar</button></div>
-    </div>
+    </div>-->
 
-    <div class="product-card">
-      <div class="card-img"><img src="jabones-saponificados.jpg" alt="Jabones saponificados" onerror="this.parentElement.innerHTML='<div class=\'card-img-placeholder\'><span>🧼</span>Jabones</div>'" /><span class="card-badge natural">Artesanal</span></div>
+  <!--  <div class="product-card">
+      <div class="card-img"><img src="jabones-saponificados.jpg" alt="Jabones saponificados" onerror="this.parentElement.innerHTML='<div class=\'card-img-placeholder\'><span>🧼</span>Jabones</div>'" /><span class="card-badge">Cuerpo</span>
       <div class="card-body">
         <div class="card-name">Jabones Saponificados</div>
         <div class="card-desc">Proceso en frío que conserva la glicerina natural. Limpieza suave y nutritiva.</div>
         <div class="card-ingredients"><strong>Ingredientes</strong>Aceite de oliva, aceite de coco, manteca de karité, arcilla, avena.</div>
       </div>
       <div class="card-footer"><div class="card-price">$1.000</div><button class="btn-add" onclick="addToCart('Jabones Saponificados', 1000)">Agregar</button></div>
-    </div>
+    </div>-->
 
     <div class="product-card">
-      <div class="card-img"><img src="jabones-glicerina.jpg" alt="Jabones saponificados" onerror="this.parentElement.innerHTML='<div class=\'card-img-placeholder\'><span>🧼</span>Jabones</div>'" /><span class="card-badge natural">Artesanal</span></div>
+      <div class="card-img"><img src="jabones-glicerina.jpg" alt="Jabones saponificados" onerror="this.parentElement.innerHTML='<div class=\'card-img-placeholder\'><span>🧼</span>Jabones</div>'" /><span class="card-badge natural"></span></div>
+<span class="card-badge">Cuerpo</span>
       <div class="card-body">
         <div class="card-name">Jabones de glicerina artesanal</div>
         <div class="card-desc">Consulta por las opciones disponibles en stock.</div>
@@ -955,7 +980,8 @@
     </div>
 
     <div class="product-card">
-      <div class="card-img"><img src="jabones-glicerina-souvenir.jpg" alt="Jabones saponificados" onerror="this.parentElement.innerHTML='<div class=\'card-img-placeholder\'><span>🧼</span>Jabones</div>'" /><span class="card-badge natural">Artesanal</span></div>
+      <div class="card-img"><img src="jabones-glicerina-souvenir.jpg" alt="Jabones saponificados" onerror="this.parentElement.innerHTML='<div class=\'card-img-placeholder\'><span>🧼</span>Jabones</div>'" /><span class="card-badge natural"></span></div>
+<span class="card-badge">Cuerpo</span>
       <div class="card-body">
         <div class="card-name">Jabones de glicerina para souvenir</div>
         <div class="card-desc">Consulta por las uninades, el precio varia.</div>
@@ -970,7 +996,7 @@
 <!-- ════════════════════════════════════════════════════════
      SECCIÓN: MAQUILLAJE
      ════════════════════════════════════════════════════════ -->
-<section class="catalog-section" data-section="maquillaje">
+<!--<section class="catalog-section" data-section="maquillaje">
   <div class="section-header">
     <h2 class="section-title"><em>Maquillaje</em> Natural</h2>
     <span class="section-count">3 productos</span>
@@ -1008,12 +1034,12 @@
     </div>
 
   </div>
-</section>
+</section>-->
 
 <!-- ════════════════════════════════════════════════════════
      SECCIÓN: OTROS
      ════════════════════════════════════════════════════════ -->
-<section class="catalog-section" data-section="otros">
+<!--<section class="catalog-section" data-section="otros">
   <div class="section-header">
     <h2 class="section-title"><em>Otros</em> productos</h2>
     <span class="section-count">4 productos</span>
@@ -1061,7 +1087,7 @@
     </div>
 
   </div>
-</section>
+</section>-->
 
 <!-- spacer -->
 <div style="height:60px;"></div>
