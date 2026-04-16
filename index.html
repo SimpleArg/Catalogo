@@ -476,6 +476,88 @@
 
   /* ── HIDDEN (filter) ─────────────────────────────────── */
   .hidden { display: none !important; }
+
+
+
+  /* Variables de color para la class informativa */
+:root {
+  --muted: #6c757d; /* Gris suave para textos secundarios */
+  --pink-btn: #e05c7e; /* El rosa de tu logo-main */
+  --bg-soft: rgba(224, 92, 126, 0.05); /* Un fondo rosado casi imperceptible */
+}
+
+.seccion-informativa {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 2.5rem;
+  background-color: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  font-family: 'DM Sans', sans-serif; /* Consistencia con .logo-sub */
+  color: #444;
+  line-height: 1.6;
+}
+
+.seccion-informativa h2 {
+  font-family: 'Dancing Script', cursive; /* El toque personal del logo-main */
+  font-size: 2.5rem;
+  color: var(--pink-btn);
+  margin-bottom: 1.5rem;
+  text-align: center;
+  border-bottom: 1px solid var(--bg-soft);
+  padding-bottom: 0.5rem;
+}
+
+.seccion-informativa h3 {
+  font-family: 'DM Sans', sans-serif;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+  margin-top: 1.5rem;
+}
+
+.seccion-informativa p {
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+/* Estilo para los pasos de compra y listas */
+.seccion-informativa article {
+  padding: 1rem;
+  border-left: 3px solid var(--bg-soft);
+  margin-bottom: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.seccion-informativa article:hover {
+  border-left-color: var(--pink-btn);
+}
+
+/* Estilo para el acordeón de Preguntas Frecuentes */
+.seccion-informativa details {
+  background: var(--bg-soft);
+  padding: 0.8rem 1.2rem;
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+  cursor: pointer;
+}
+
+.seccion-informativa summary {
+  font-weight: 500;
+  color: var(--pink-btn);
+  list-style: none; /* Quita la flecha por defecto en algunos navegadores */
+}
+
+.seccion-informativa summary::before {
+  content: "✦ "; /* Un detalle sutil decorativo */
+  font-size: 0.8rem;
+}
+
+.seccion-informativa strong {
+  color: var(--pink-btn);
+}
+  
 </style>
 </head>
 <body>
@@ -506,14 +588,14 @@
 <!-- Sobre nosotros, como comprear, envios y preguntas frecuentes -->
 
   <section id="sobre-nosotras" class="seccion-informativa">
-    <h2>Sobre nosotras</h2>
+    <summary><h2>Sobre nosotras</h2></summary>
     <div class="contenido">
         <p>Somos un equipo familiar oriundo de Colonia Avellaneda.</p>
     </div>
 </section>
 
 <section id="como-comprar" class="seccion-informativa">
-    <h2>Cómo comprar</h2>
+    <summary><h2>Cómo comprar</h2></summary>
     <div class="pasos-compra">
         <article>
             <h3>1. Elegí tus productos</h3>
@@ -535,7 +617,7 @@
 </section>
 
 <section id="envios" class="seccion-informativa">
-    <h2>Envíos</h2>
+    <summary><h2>Envíos</h2></summary>
     <div class="contenido">
         <p>Realizamos envíos a Colonia Avellaneda, Sauce Montrul, San Benito, Paraná y María Grande.</p>
         <!--<p><strong>Costo de envío:</strong> Se calcula automáticamente antes de finalizar la compra ingresando tu código postal.</p>-->
